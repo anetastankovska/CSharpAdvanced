@@ -7,32 +7,49 @@ public class Program
 
         TextCounter();
 
+
         Console.ReadLine();
 
     }
 
-    static int TextCounter()
+    static void TextCounter()
     {
-        Console.WriteLine("Enter a text below");
-        List<string> textList = new List<string>();
+        
+        List<string> names = new List<string>();
 
-        string userInput = string.Empty;
-
-
-        while (userInput != "x")
+        do
         {
-            userInput = Console.ReadLine();
-            textList.Add(userInput);
+            string name = string.Empty;
+            Console.WriteLine("Enter a namew");
+            if (name.ToLower() == "x")
+            {
+                break;
+            }
+            else
+            {
+                names.Add(name);
+            }
         }
+        while (name.ToLower() == "x");
 
         Console.WriteLine("Please enter a text");
-        string userText = Console.ReadLine();
 
-        int counter = 0;
-        foreach (string item in textList)
+        string enteredText = Console.ReadLine();
+
+        string[] enteredWords = enteredText.Split(' ');
+
+        foreach (string name in names)
         {
-            if () { }
+            int counter = 0;
+            foreach(string word in enteredWords)
+            {
+                if(word.ToLower() == name.ToLower())
+                {
+                    counter++;
+                }
+            }
+            Console.WriteLine($"string {name}: {counter}");
+            
         }
-
     }
 }

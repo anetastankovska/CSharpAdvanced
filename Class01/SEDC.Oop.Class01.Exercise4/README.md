@@ -17,18 +17,18 @@ Features 🔹
 - When hitin enter it logs out the teacher and another user can log in
 
 2. Validations
-All the choices must be numbers from 1 to 4
-Username must exist in the database
-Username and Password must match
-If the username and password do not match 3 times, then close the application
+- All the choices must be numbers from 1 to 4
+- Username must exist in the database
+- Username and Password must match
+- If the username and password do not match 3 times, then close the application
 
 3. Data 🔹
-Q: What is the capital of Tasmania?
+* Q: What is the capital of Tasmania?
 a: Dodoma
 b: Hobart *
 c: Launceston
 d: Wellington
-Q: What is the tallest building in the Republic of the Congo?
+* Q: What is the tallest building in the Republic of the Congo?
 a: Kinshasa Democratic Republic of the Congo Temple
 b: Palais de la Nation
 c: Kongo Trade Centre

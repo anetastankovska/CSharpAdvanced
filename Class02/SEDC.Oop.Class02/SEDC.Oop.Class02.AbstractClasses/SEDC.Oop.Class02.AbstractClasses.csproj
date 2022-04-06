@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.Oop.Class02.Entities\SEDC.Oop.Class02.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

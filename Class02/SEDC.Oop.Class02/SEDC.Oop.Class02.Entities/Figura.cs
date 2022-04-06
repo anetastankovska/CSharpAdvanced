@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEDC.Oop.Class02.Entities
+namespace Entities
 {
-    internal class Figura
+    public abstract class Figura
     {
+        public abstract double PresmetajPlostina();
     }
 }
+

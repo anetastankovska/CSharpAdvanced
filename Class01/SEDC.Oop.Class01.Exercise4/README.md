@@ -33,18 +33,18 @@ a: Kinshasa Democratic Republic of the Congo Temple
 b: Palais de la Nation
 c: Kongo Trade Centre
 d: Nabemba Tower *
-Q: Which of these is not one of Pluto's moons?
+* Q: Which of these is not one of Pluto's moons?
 a: Styx
 b: Hydra
 c: Nix *
 d: Lugia
-Q: What is the smallest lake in the world?
+* Q: What is the smallest lake in the world?
 a: Onega Lake
 b: Benxi Lake *
 c: Kivu Lake
 d: Wakatipu Lake
-Q: What country has the largest population of alpacas?
-a: Chad
-b: Peru *
+* Q: What country has the largest population of alpacas?
+\n a: Chad
+\n b: Peru *
 c: Australia
 d: Niger

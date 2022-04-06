@@ -8,16 +8,16 @@ namespace SEDC.Oop.Class01.QuizApp.Models
 {
     public class Student : User
     {
-        public int Grade { get; set; }
         public bool TestDone { get; set; }
+        public int Grade { get; set; }
 
         public Student() { }
 
-        public Student(string firstName, string lastName, string username, string password)
-            : base(firstName, lastName, username, password)
+        public Student(string name, string username, string password)
+            : base(name, username, password)
         {
-            Grade = 0;
             TestDone = false;
+            Grade = 0;
         }
 
         public int showGrade()

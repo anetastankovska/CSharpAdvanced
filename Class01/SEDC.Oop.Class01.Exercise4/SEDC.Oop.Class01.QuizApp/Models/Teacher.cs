@@ -8,18 +8,31 @@ namespace SEDC.Oop.Class01.QuizApp.Models
 {
     public class Teacher : User
     {
-        Dictionary<Student, int> Students { get; set; }
-
         public Teacher() { }
-        public Teacher(string firstName, string lastName, string userName, string password)
-            : base(firstName, lastName, userName, password)
+        public Teacher(string name, string userName, string password)
+            : base(name, userName, password)
         {
-            Students = new Dictionary<Student, int>();
+            
         }
 
-        public void ShowStudents()
+        public void ShowStudents(List<Student> students)
         {
-
+            Console.WriteLine($"Welcome to your account {Name}!");
+            Console.WriteLine("Your students: \n");
+            foreach(Student student in students)
+            {
+                if (!student.TestDone)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Student: {student.Name}");
+                }
+                else
+                {
+                    Console.ForegroundColor= ConsoleColor.Green;
+                    Console.WriteLine($"Student: {student.Name}, grade: {student.Grade}" );
+                }
+            }
+            Console.ResetColor();
         }
     }
 }

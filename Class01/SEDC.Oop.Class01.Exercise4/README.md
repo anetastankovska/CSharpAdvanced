@@ -44,7 +44,7 @@ b: Benxi Lake *
 c: Kivu Lake
 d: Wakatipu Lake
 * Q: What country has the largest population of alpacas?
-\n a: Chad
-\n b: Peru *
+a: Chad
+b: Peru *
 c: Australia
 d: Niger

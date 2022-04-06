@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.AbstractClasses", "SEDC.Oop.Class02.AbstractClasses\SEDC.Oop.Class02.AbstractClasses.csproj", "{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.Entities", "SEDC.Oop.Class02.Entities\SEDC.Oop.Class02.Entities.csproj", "{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

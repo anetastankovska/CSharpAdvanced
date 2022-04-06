@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEDC.Oop.Class02.AbstractClasses.Entities
+namespace SEDC.Oop.Class02.Entities
 {
     internal class Person
     {

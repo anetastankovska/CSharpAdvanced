@@ -25,9 +25,13 @@ Features 🔹
 3. Data 🔹
 * Q: What is the capital of Tasmania?
 a: Dodoma
+
 b: Hobart *
+
 c: Launceston
+
 d: Wellington
+
 * Q: What is the tallest building in the Republic of the Congo?
 a: Kinshasa Democratic Republic of the Congo Temple
 b: Palais de la Nation

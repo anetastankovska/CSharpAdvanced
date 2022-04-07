@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.AbstractClasses", "SEDC.Oop.Class02.AbstractClasses\SEDC.Oop.Class02.AbstractClasses.csproj", "{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.AbstractClasses", "SEDC.Oop.Class02.AbstractClasses\SEDC.Oop.Class02.AbstractClasses.csproj", "{D6EE06A0-90B8-4C74-9635-0B16ABEED2B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.Entities", "SEDC.Oop.Class02.Entities\SEDC.Oop.Class02.Entities.csproj", "{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.Entities", "SEDC.Oop.Class02.Entities\SEDC.Oop.Class02.Entities.csproj", "{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.Exercise1", "SEDC.Oop.Class02.Exercise1\SEDC.Oop.Class02.Exercise1.csproj", "{288D5266-1948-4E69-8F4A-503DFE363F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.Exercise2", "SEDC.Oop.Class02.Exercise2\SEDC.Oop.Class02.Exercise2.csproj", "{CEEF4A98-4BA0-46F7-B9D8-48354934E439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72A841D1-0BE2-40F4-9D94-6B5ACCFC015A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288D5266-1948-4E69-8F4A-503DFE363F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288D5266-1948-4E69-8F4A-503DFE363F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288D5266-1948-4E69-8F4A-503DFE363F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288D5266-1948-4E69-8F4A-503DFE363F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEEF4A98-4BA0-46F7-B9D8-48354934E439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEF4A98-4BA0-46F7-B9D8-48354934E439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEF4A98-4BA0-46F7-B9D8-48354934E439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEF4A98-4BA0-46F7-B9D8-48354934E439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

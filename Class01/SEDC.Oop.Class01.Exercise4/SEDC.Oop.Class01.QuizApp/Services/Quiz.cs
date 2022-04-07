@@ -35,6 +35,10 @@ namespace SEDC.Oop.Class01.QuizApp.Services
                 Console.Clear();
                 Console.WriteLine("Welcome to the School Quiz. \nEnter your username and password to continue");
                 CurrentUser = Login();
+                if(CurrentUser == null)
+                {
+                    continue;
+                }
                 if (CurrentUser.GetType() == typeof(Teacher))
                 {
                     (CurrentUser as Teacher).ShowStudents(GetStudents());

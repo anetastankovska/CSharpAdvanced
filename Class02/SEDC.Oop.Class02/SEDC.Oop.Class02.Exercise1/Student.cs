@@ -8,6 +8,10 @@ namespace SEDC.Oop.Class02.Exercise1
 {
     public class Student : User, IStudent
     {
+        public Student()
+        {
+        }
+
         public Student(int id, string name, string username, string password) : base(id, name, username, password)
         {
         }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SEDC.Oop.Class02.Exercise1
 {
-    internal interface IStudent
+    public interface IStudent
     {
+        List<int> Grades { get; set; }
+
     }
+
 }

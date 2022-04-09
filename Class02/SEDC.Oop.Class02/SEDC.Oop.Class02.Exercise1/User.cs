@@ -22,9 +22,9 @@ namespace SEDC.Oop.Class02.Exercise1
 
         }
 
-        public void PrintUser()
+        public virtual void PrintUser()
         {
-            Console.WriteLine($"ID: {Id}, username: {Username}, name: {name}");
+            Console.WriteLine($"ID: {Id}, username: {Username}, name: {Name}");
         }
     }
 }

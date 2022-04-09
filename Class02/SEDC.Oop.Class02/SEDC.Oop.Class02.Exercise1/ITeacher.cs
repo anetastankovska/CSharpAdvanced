@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SEDC.Oop.Class02.Exercise1
 {
-    internal interface ITeacher
+    public interface ITeacher
     {
+        string Subject { get; set; }
     }
 }

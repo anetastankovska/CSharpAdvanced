@@ -2,16 +2,21 @@
 using Class02.AbstractionsAndInterfaces.Models;
 using Class02.AbstractionsAndInterfaces.Service;
 
-Console.WriteLine("Hello, World!");
-
 VehicleWarehouse.InitializeData();  // Load cars
-Vehicle  v = VehicleWarehouse.BrowseVehicle();  // Asks to select a vehicle
-Console.WriteLine(VehicleWarehouse.ShowVehicleStatus(v));   // Prints status for the selected vehicle
 CarCenter carCenter = new CarCenter();
+while (true)
+{
+    Console.Clear();
+    Vehicle v = VehicleWarehouse.BrowseVehicle();  // Asks to select a vehicle
+    Console.WriteLine(VehicleWarehouse.ShowVehicleStatus(v));   // Prints status for the selected vehicle
 
-int selectedOption = VehicleWarehouse.ShowServices();
-carCenter.DoService(v, selectedOption);
-Console.WriteLine(VehicleWarehouse.ShowVehicleStatus(v));
+    int selectedOption = VehicleWarehouse.ShowServices();
+    carCenter.DoService(v, selectedOption);
+    Console.WriteLine(VehicleWarehouse.ShowVehicleStatus(v));
+    Console.WriteLine("Press ctrl + c to exit");
+    Thread.Sleep(5000);
+}
+
 
 
 

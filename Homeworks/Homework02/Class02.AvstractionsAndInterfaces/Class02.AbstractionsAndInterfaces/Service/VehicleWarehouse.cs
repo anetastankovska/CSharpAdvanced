@@ -82,7 +82,7 @@ namespace Class02.AbstractionsAndInterfaces.Service
 
         public static string ShowVehicleStatus(Vehicle vehicle)
         {
-            return $"{vehicle.Brand} {vehicle.Model}: \nis clean: {BoolToYesNo(vehicle.IsClean)} \nneeds repairment: {BoolToYesNo(vehicle.IsBroken)} \ngas tank full: {BoolToYesNo(vehicle.IsGasFull)}";
+            return $"\n{vehicle.Brand} {vehicle.Model}: \nis clean: {BoolToYesNo(vehicle.IsClean)} \nneeds repairment: {BoolToYesNo(vehicle.IsBroken)} \ngas tank full: {BoolToYesNo(vehicle.IsGasFull)}";
         }
     }
 }

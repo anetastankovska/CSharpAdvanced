@@ -11,6 +11,8 @@ CarCenter carCenter = new CarCenter();
 
 int selectedOption = VehicleWarehouse.ShowServices();
 carCenter.DoService(v, selectedOption);
+Console.WriteLine(VehicleWarehouse.ShowVehicleStatus(v));
+
 
 
 

@@ -8,6 +8,9 @@ namespace SEDC.Oop.Class02.Exercise1
 {
     public class Teacher : User, ITeacher
     {
+        public Teacher()
+        {
+        }
 
         public Teacher(int id, string name, string username, string password) : base(id, name, username, password)
         {

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.StaticClasses", "SEDC.Oop.Class02.StaticClasses\SEDC.Oop.Class02.StaticClasses.csproj", "{CDB9CA61-4CF9-4956-B208-DD998A944B31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class02.StaticClasses", "SEDC.Oop.Class02.StaticClasses\SEDC.Oop.Class02.StaticClasses.csproj", "{CDB9CA61-4CF9-4956-B208-DD998A944B31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class03.Polymorphism", "SEDC.Oop.Class03.Polymorphism\SEDC.Oop.Class03.Polymorphism.csproj", "{EE5B8613-A031-47F7-9A1B-3158E744CFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.Oop.Class03.Polymorphism", "SEDC.Oop.Class03.Polymorphism\SEDC.Oop.Class03.Polymorphism.csproj", "{EE5B8613-A031-47F7-9A1B-3158E744CFA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.Class02.Exercise1", "SEDC.Oop.Class02.Exercise1\SEDC.Oop.Class02.Exercise1.csproj", "{67D4A2AB-E216-48CF-BCF9-19A5C9CCE8AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EE5B8613-A031-47F7-9A1B-3158E744CFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE5B8613-A031-47F7-9A1B-3158E744CFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE5B8613-A031-47F7-9A1B-3158E744CFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D4A2AB-E216-48CF-BCF9-19A5C9CCE8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D4A2AB-E216-48CF-BCF9-19A5C9CCE8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D4A2AB-E216-48CF-BCF9-19A5C9CCE8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D4A2AB-E216-48CF-BCF9-19A5C9CCE8AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,3 +1,5 @@
+**Car Service**
+
 1. Create one abstract class Vehicle with abstract method Drive, and two classes Car and Truck that inherit from Vehicle and override the method Drive.
 2. Create 3 interfaces:
 - ICarWash that has methods WashCar that works for Cars, and WashTrailer that works for Trailers.

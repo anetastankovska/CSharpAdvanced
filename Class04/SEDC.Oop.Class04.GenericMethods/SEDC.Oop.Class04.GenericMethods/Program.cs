@@ -64,3 +64,5 @@ productDB.DeleteItem(productForDelete);
 productDB.DeleteItem(secondProduct);
 
 productDB.Add(productForDelete);
+
+Console.WriteLine();

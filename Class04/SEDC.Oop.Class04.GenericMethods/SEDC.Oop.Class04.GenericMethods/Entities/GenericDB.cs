@@ -44,11 +44,6 @@ namespace SEDC.Oop.Class04.GenericMethods.Entities
                 Console.WriteLine("The item was not found.");
             }
         }
-
-        //public void DeleteItemById(int id)
-        //{
-        //    items = items.FirstOrDefault(x => x.Id == id);
-        //}
         
     }
 }

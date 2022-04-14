@@ -40,7 +40,7 @@ namespace Taxi.Manager._9000.Data
             Drivers.Add(new Driver(1, "Aneta", "Stankovska", Shift.Morning, volvo, "12345", new DateTime(2023,9,1)));
             Drivers.Add(new Driver(2, "Stefan", "Ivanovski", Shift.Evening, toyota, "12345", new DateTime(2025, 10, 15)));
             Drivers.Add(new Driver(3, "Aleksandar", "Zivkovic", Shift.Afternoon, mercedez, "12345", new DateTime(2025, 9,1)));
-            Drivers.Add(new Driver(4, "Bob", "bobsky", Shift.Morning, skoda, "12345", new DateTime(2023, 4, 10)));
+            Drivers.Add(new Driver(4, "Bob", "Bobsky", Shift.Morning, skoda, "12345", new DateTime(2023, 4, 10)));
 
             
         }

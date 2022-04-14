@@ -30,6 +30,7 @@ namespace Taxi.Manager._9000.Services.UserServices
 
                 }
                 Console.WriteLine($"Successful Login! Welcome {user.Role} user!");
+                break;
             }
             return user;            
         }
@@ -39,13 +40,13 @@ namespace Taxi.Manager._9000.Services.UserServices
 
         }
 
-        public User CreateUser()
-        {
-            Console.WriteLine("Username:");
-            string username = Console.ReadLine();
-            Console.WriteLine("Password:");
-            string password = Console.ReadLine();
-        }
+        //public User CreateUser()
+        //{
+        //    Console.WriteLine("Username:");
+        //    string username = Console.ReadLine();
+        //    Console.WriteLine("Password:");
+        //    string password = Console.ReadLine();
+        //}
 
         public void TerminateUser()
         {
@@ -68,24 +69,29 @@ namespace Taxi.Manager._9000.Services.UserServices
             return null;
         }
 
-        public User ValidateUsernameAndPassword(string username, string password)
+        public User CreateUser()
         {
-            while(username.Length < 5)
-            {
-                Console.WriteLine("The username is too short. Try another one");
-                username = Console.ReadLine();
-            }
-            string[] passArray = password.Split("");
-            foreach (string x in passArray)
-            {
-                if(!int.TryParse(x, out int value))
-                {
-                    Console.WriteLine("The password is not valid. Please try again.");
-                }
-                
-            }
-
-            
+            throw new NotImplementedException();
         }
+
+        //public User ValidateUsernameAndPassword(string username, string password)
+        //{
+        //    while(username.Length < 5)
+        //    {
+        //        Console.WriteLine("The username is too short. Try another one");
+        //        username = Console.ReadLine();
+        //    }
+        //    string[] passArray = password.Split("");
+        //    foreach (string x in passArray)
+        //    {
+        //        if(!int.TryParse(x, out int value))
+        //        {
+        //            Console.WriteLine("The password is not valid. Please try again.");
+        //        }
+
+        //    }
+
+
+    
     }
 }

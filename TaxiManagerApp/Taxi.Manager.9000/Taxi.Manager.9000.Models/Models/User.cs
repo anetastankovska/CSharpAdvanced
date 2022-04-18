@@ -23,6 +23,9 @@ namespace Taxi.Manager._9000.Models.Models
             Role = role;
         }
 
-       
+        public override string ToString()
+        {
+            return $"{Id} - {UserName} {Role}";
+        }
     }
 }

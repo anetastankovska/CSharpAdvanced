@@ -10,20 +10,40 @@ namespace Taxi.Manager._9000.Services.Helpers
 {
     public class Helper
     {
-        public User ValidateUsernameAndPassword(string username, string password)
+        public int ValidateInput(int min, int max)
         {
-            User user = Repository.Users.FirstOrDefault(x => x.UserName == username);
-            while(user == null)
+            int choice = int.MinValue;
+            string input = Console.ReadLine();
+            while (int.TryParse(input, out choice) && (choice < min || choice > max))
             {
-                Console.WriteLine("The user with such username does not exists");
+                Console.WriteLine("Please enter a valid input.");
+                input = Console.ReadLine();
+            }
+            return choice;
+        }
+
+        public bool ValidateUsernameAndPassword(string username, string password)
+        {
+            while (username.Length < 5)
+            {
+                Console.WriteLine("The username is too short. Please try again.");
                 username = Console.ReadLine();
             }
-            while(user.Password != password)
+            while (!password.Any(c => char.IsDigit(c)) && password.Length < 5)
             {
-                Console.WriteLine("The password is incorrect. Please try again");
+                Console.WriteLine("The password does not match the criteria. Please try again");
                 password = Console.ReadLine();
             }
-            return user;
+            return true;
+        }
+
+        public void ListAllUsers(List<User> users)
+        {
+            int counter = 1;
+            foreach (User user in users)
+            {
+                Console.WriteLine($"{counter++}. {user}");
+            }
         }
     }
 }

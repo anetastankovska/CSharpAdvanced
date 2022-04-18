@@ -29,5 +29,10 @@ namespace Taxi.Manager._9000.Models.Models
             LicenseExpiryDate = licenseExpiryDate;
         }
 
+        public override string ToString()
+        {
+            return $"{Id} {FirstName} {LastName}. Shift: {Shift}, car: {Car}, license: {License}, license expiry date: {LicenseExpiryDate}";
+        }
+
     }
 }

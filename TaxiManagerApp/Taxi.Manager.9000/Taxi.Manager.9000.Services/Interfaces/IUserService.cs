@@ -11,7 +11,7 @@ namespace Taxi.Manager._9000.Services.Interfaces
     {
         public User Login();
         public void ChangePassword();
-        public User CreateUser();
+        public User NewUser();
         public void TerminateUser();
         public void Exit();
     }

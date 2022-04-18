@@ -22,5 +22,10 @@ namespace Taxi.Manager._9000.Models.Models
             LicensePlate = licensePlate;
             ExpiryDate = expiryDate;
         }
+
+        public override string ToString()
+        {
+            return $"{Id} {Model}, license plate: {LicensePlate}, license plate expiry date: {ExpiryDate}";
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Taxi.Manager._9000.Data;
+using Taxi.Manager._9000.Models.Enums;
 using Taxi.Manager._9000.Models.Models;
 using Taxi.Manager._9000.Services.Helpers;
 using Taxi.Manager._9000.Services.Interfaces;
@@ -13,85 +14,110 @@ namespace Taxi.Manager._9000.Services.UserServices
 {
     public class UserService : IUserService
     {
+        User currentUser = null;
+
+        Helper helpers = new Helper();
+        Menu menus = new Menu();
         public User Login()
         {
-            User user;
-            while (true)
+            try
             {
-                Console.WriteLine("Enter username");
+                Console.WriteLine("Enter your username");
                 string username = Console.ReadLine();
-                Console.WriteLine("Enter password");
-                string password = Console.ReadLine();
-                user = SearchForUsernameAndPassword(username, password);
-                if (user == null)
+                User selected = Repository.Users.FirstOrDefault(x => x.UserName == username);
+                if (selected == default)
                 {
-                    Console.WriteLine("Login unsuccessful. Please try again.");
-                    break;
-
+                    Console.WriteLine("The user has not been found.");
+                    return null;
                 }
-                Console.WriteLine($"Successful Login! Welcome {user.Role} user!");
-                break;
+                Console.WriteLine("Enter your password");
+                string password = Console.ReadLine();
+                if (selected.Password != password)
+                {
+                    Console.WriteLine("The password is incorrect.");
+                    return null;
+                }
+                currentUser = selected;
+                return selected;
             }
-            return user;            
+            catch (ArgumentNullException)
+            {
+                Console.Write("User not found. Please wait");
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                }
+                return null;
+            }
         }
-
+        
         public void ChangePassword()
         {
-
+            Console.WriteLine("Please enter your old password");
+            string oldPassword = Console.ReadLine();
+            while (currentUser.Password != oldPassword)
+            {
+                Console.WriteLine("The password does not match. Please try again");
+                oldPassword = Console.ReadLine();
+            }
+            Console.WriteLine("Please enter the new password. The password must be at least 5 characters long and must contain at least one number.");
+            string newPassword = Console.ReadLine();
+            while (!newPassword.Any(c => char.IsDigit(c)) && newPassword.Length < 5)
+            {
+                Console.WriteLine("The password does not match the criteria. Please try again");
+                newPassword = Console.ReadLine();
+            }
+            currentUser.Password = newPassword;
+            Console.WriteLine("The password has been changed");
         }
-
-        //public User CreateUser()
-        //{
-        //    Console.WriteLine("Username:");
-        //    string username = Console.ReadLine();
-        //    Console.WriteLine("Password:");
-        //    string password = Console.ReadLine();
-        //}
 
         public void TerminateUser()
         {
-
+            helpers.ListAllUsers(Repository.Users);
+            Console.WriteLine("Please select the user you want to remove");
+            int choice = helpers.ValidateInput(1, Repository.Users.Count);
+            Repository.Users.Remove(Repository.Users[choice]);
+            Console.WriteLine("The user has been terminated");
+            menus.MainAdminMenu();
         }
 
         public void Exit()
         {
+            Console.WriteLine("Thank you for using our app");
             return;
         }
 
-
-        public User SearchForUsernameAndPassword(string username, string password)
+        public void Logout()
         {
-            User user = Repository.Users.FirstOrDefault(x => x.UserName == username);   
-            if (user.UserName == username)
+            currentUser = null;
+            menus.MainMenu();
+        }
+
+
+        public void NewUser()
+        {
+            while (true)
             {
-                return user;
+                Console.WriteLine("Please enter a username (The username must be at least 5 characters long)");
+                string username = Console.ReadLine();
+                Console.WriteLine("Please enter a password (The password must be at least 5 characters long and contain at least one digit)");
+                string password = Console.ReadLine();
+                bool validUsernameAndPassword = helpers.ValidateUsernameAndPassword(username, password);
+                if (!validUsernameAndPassword)
+                {
+                    Console.WriteLine("The credentials are not valid, try again");
+                    break;
+                }
+                Console.WriteLine("Please select a role: \n1. Administrator \n2. Manager \n3. Maintainance ");
+                int choice = helpers.ValidateInput(1, 3);
+                User newUser = new User(Repository.Users.Count + 1, username, password, (Role)choice);
+                Repository.Users.Add(newUser);
+                break;
             }
-            return null;
+            menus.MainAdminMenu();
         }
 
-        public User CreateUser()
-        {
-            throw new NotImplementedException();
-        }
-
-        //public User ValidateUsernameAndPassword(string username, string password)
-        //{
-        //    while(username.Length < 5)
-        //    {
-        //        Console.WriteLine("The username is too short. Try another one");
-        //        username = Console.ReadLine();
-        //    }
-        //    string[] passArray = password.Split("");
-        //    foreach (string x in passArray)
-        //    {
-        //        if(!int.TryParse(x, out int value))
-        //        {
-        //            Console.WriteLine("The password is not valid. Please try again.");
-        //        }
-
-        //    }
-
-
-    
+        
     }
 }

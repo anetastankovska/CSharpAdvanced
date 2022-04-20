@@ -16,7 +16,7 @@ namespace Taxi.Manager._9000.Services.Helpers
             string input = Console.ReadLine();
             while (int.TryParse(input, out choice) && (choice < min || choice > max))
             {
-                Console.WriteLine("Please enter a valid input.");
+                printColor("Please enter a valid input.", ConsoleColor.Red);
                 input = Console.ReadLine();
             }
             return choice;
@@ -26,12 +26,12 @@ namespace Taxi.Manager._9000.Services.Helpers
         {
             while (username.Length < 5)
             {
-                Console.WriteLine("The username is too short. Please try again.");
+                printColor("The username is too short. Please try again.", ConsoleColor.Red);
                 username = Console.ReadLine();
             }
             while (!password.Any(c => char.IsDigit(c)) && password.Length < 5)
             {
-                Console.WriteLine("The password does not match the criteria. Please try again");
+                printColor("The password does not match the criteria. Please try again", ConsoleColor.Red);
                 password = Console.ReadLine();
             }
             return true;
@@ -45,5 +45,24 @@ namespace Taxi.Manager._9000.Services.Helpers
                 Console.WriteLine($"{counter++}. {user}");
             }
         }
+        public double CheckUtilized(List<Car> cars, string UtilizedCar)
+        {
+            int counter = 0; 
+            foreach (Car car in cars)
+            {
+                if(car.Model == UtilizedCar)
+                {
+                    counter++;
+                }
+            }
+            return counter / cars.Count * 100;
+        }
+
+        public Action<string, ConsoleColor> printColor = (text, color) =>
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        };
     }
 }

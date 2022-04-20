@@ -8,10 +8,10 @@ namespace Taxi.Manager._9000.Models.Models
 {
     public class Car : BaseEntity
     {
-        string Model { get; set; }
-        string LicensePlate { get; set; }
-        DateTime ExpiryDate { get; set; }
-        List<Driver> AssignedDrivers { get; set; } = new List<Driver>();
+        public string Model { get; set; }
+        public string LicensePlate { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public List<Driver> AssignedDrivers { get; set; } = new List<Driver>();
 
         public Car() { }
 

@@ -38,11 +38,11 @@ namespace Taxi.Manager._9000.Data
             Cars.Add(skoda);
 
             Drivers.Add(new Driver(1, "Aneta", "Stankovska", Shift.Morning, volvo, "12345", new DateTime(2023,9,1)));
-            Drivers.Add(new Driver(2, "Stefan", "Ivanovski", Shift.Evening, toyota, "12345", new DateTime(2025, 10, 15)));
-            Drivers.Add(new Driver(3, "Aleksandar", "Zivkovic", Shift.Afternoon, mercedez, "12345", new DateTime(2025, 9,1)));
-            Drivers.Add(new Driver(4, "Bob", "Bobsky", Shift.Morning, skoda, "12345", new DateTime(2023, 4, 10)));
-
-            
+            Drivers.Add(new Driver(2, "Stefan", "Ivanovski", Shift.Evening, toyota, "42876", new DateTime(2025, 10, 15)));
+            Drivers.Add(new Driver(3, "Aleksandar", "Zivkovic", Shift.Afternoon, mercedez, "78123", new DateTime(2025, 9,1)));
+            Drivers.Add(new Driver(4, "Bob", "Bobsky", Shift.Morning, skoda, "98564", new DateTime(2023, 4, 10)));
+            Drivers.Add(new Driver(5, "Ilija", "Mitev", Shift.Evening, volvo, "23415", new DateTime(2023, 4, 10)));
+            Drivers.Add(new Driver(5, "Marija", "Kolevska", Shift.Afternoon, toyota, "23415", new DateTime(2023, 4, 10)));
         }
     }
 }

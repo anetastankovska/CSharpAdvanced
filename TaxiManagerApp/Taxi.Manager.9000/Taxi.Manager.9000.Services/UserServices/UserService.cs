@@ -27,22 +27,23 @@ namespace Taxi.Manager._9000.Services.UserServices
                 User selected = Repository.Users.FirstOrDefault(x => x.UserName == username);
                 if (selected == default)
                 {
-                    Console.WriteLine("The user has not been found.");
+                    helpers.printColor("The user has not been found.", ConsoleColor.Red);
                     return null;
                 }
                 Console.WriteLine("Enter your password");
                 string password = Console.ReadLine();
                 if (selected.Password != password)
                 {
-                    Console.WriteLine("The password is incorrect.");
+                    helpers.printColor("The password is incorrect.", ConsoleColor.Red);
                     return null;
                 }
                 currentUser = selected;
+                helpers.printColor($"Succesful Login. Welcome {selected.Role}", ConsoleColor.Green);
                 return selected;
             }
             catch (ArgumentNullException)
             {
-                Console.Write("User not found. Please wait");
+                helpers.printColor("User not found. Please wait", ConsoleColor.Red);
                 for (int i = 0; i < 3; i++)
                 {
                     Console.Write(".");
@@ -94,7 +95,6 @@ namespace Taxi.Manager._9000.Services.UserServices
             menus.MainMenu();
         }
 
-
         public void NewUser()
         {
             while (true)
@@ -118,6 +118,39 @@ namespace Taxi.Manager._9000.Services.UserServices
             menus.MainAdminMenu();
         }
 
-        
+        public void ListAllVehicles()
+        {
+            List<string> listedVehicles = Repository.Cars
+                                          .Select(x =>
+                                          {
+                                              return $"{x.Id}) {x.Model} with {x.LicensePlate} and utilized             {helpers.CheckUtilized(Repository.Cars, (x.Model))}%";
+                                          }).ToList();
+
+            listedVehicles.ForEach(x => Console.WriteLine(x));
+        }
+
+        public void LicensePlateStatus()
+        {
+            foreach (Car car in Repository.Cars)
+            {
+                TimeSpan timespan = DateTime.Now - car.ExpiryDate;
+                double totalHours = timespan.TotalHours;
+                if(totalHours > 0)
+                {
+                    Console.WriteLine($"Expired");
+                }
+                else
+                {
+                    if(Math.Abs(totalHours) < 24 * 30.5 * 3)
+                    {
+                        Console.WriteLine($"Less than 3 months to expire.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Valid");
+                    }
+                }
+            }
+        }
     }
 }

@@ -7,13 +7,14 @@ using Taxi.Manager._9000.Models.Models;
 using Taxi.Manager._9000.Services.Helpers;
 using Taxi.Manager._9000.Models.Enums;
 using Taxi.Manager._9000.Services.Menus;
+using Taxi.Manager._9000.Services.Interfaces;
 
 namespace Taxi.Manager._9000.Services.ManagerServices
 {
-    public class ManagerService
+    public class ManagerService : IManagerService
     {
-        List<Driver> Drivers { get; set; } = new List<Driver>();
-        List<Car> Cars { get; set; } = new List<Car>();
+        public List<Driver> Drivers { get; set; } = new List<Driver>();
+        public List<Car> Cars { get; set; } = new List<Car>();
 
         Helper helpers = new Helper();
         Menu menus = new Menu();
@@ -95,7 +96,5 @@ namespace Taxi.Manager._9000.Services.ManagerServices
             choice = helpers.ValidateInput(1, assignedDrivers.Count);
             assignedDrivers[choice - 1].Shift = SelectShift();
         }
-
-        
     }
 }

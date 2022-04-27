@@ -57,6 +57,13 @@ namespace Taxi.Manager._9000.Services.Helpers
             Console.ResetColor();
         };
 
+        public string ColoredString(string text, ConsoleColor color)
+        {
+            string strColor = "\u001b[__m";
+            strColor.Replace("__", color == ConsoleColor.Red ? "31" : color == ConsoleColor.Green ? "32" : "33");
+            return $"{strColor}{text}\u001b[0m";
+        }
+
         public void RedirectToMenu(Func<int> menu, string message)
         {
             Console.WriteLine(message);

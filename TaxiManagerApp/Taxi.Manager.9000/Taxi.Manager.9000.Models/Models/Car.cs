@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Taxi.Manager._9000.Models.Enums;
+using Taxi.Manager._9000.Models.Interfaces;
 
 namespace Taxi.Manager._9000.Models.Models
 {
-    public class Car : BaseEntity
+    public class Car : BaseEntity, ICar
     {
         public string Model { get; set; }
         public string LicensePlate { get; set; }
@@ -61,9 +62,25 @@ namespace Taxi.Manager._9000.Models.Models
 
         }
 
-        public void PrintLicenseStatus()
+        public LicensePlateStatus CarLicenseStatus()
         {
-
+            TimeSpan timespan = DateTime.Now - ExpiryDate;
+            double totalHours = timespan.TotalHours;
+            if (totalHours > 0)
+            {
+                return LicensePlateStatus.Expired;
+            }
+            else
+            {
+                if (Math.Abs(totalHours) < 24 * 30.5 * 3)
+                {
+                    return LicensePlateStatus.NearExpiry;
+                }
+                else
+                {
+                    return LicensePlateStatus.Valid;
+                }
+            }
         }
     }
 }

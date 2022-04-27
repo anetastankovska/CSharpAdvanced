@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using Taxi.Manager._9000.Models.Enums;
 using Taxi.Manager._9000.Models.Models;
 using Taxi.Manager._9000.Services.Helpers;
+using Taxi.Manager._9000.Services.Interfaces;
 
 namespace Taxi.Manager._9000.Services.MaintainanceServices
 {
-    internal class MaintainanceService
+    public class MaintainanceService : IMaintainanceService
     {
-        List<Car> Cars { get; set; }
+        public List<Car> Cars { get; set; }
 
         Helper helpers = new Helper();
 
-        public void ListAllVehicles()
+        public string ListAllVehicles()
         {
             List<string> listedVehicles = Cars
                                           .Select(x =>
@@ -23,33 +24,27 @@ namespace Taxi.Manager._9000.Services.MaintainanceServices
                                               return $"{x.Id}) {x.Model} with {x.LicensePlate} and utilized             {helpers.CheckUtilized(Cars, (x.Model))}%";
                                           }).ToList();
 
-            listedVehicles.ForEach(x => Console.WriteLine(x));
+            return String.Join("\n", listedVehicles);
         }
 
         public Dictionary<Car, LicensePlateStatus> LicensePlatesStatus()
         {
             Dictionary<Car, LicensePlateStatus> status = new Dictionary<Car, LicensePlateStatus>();
-            foreach (Car car in Cars)
-            {
-                TimeSpan timespan = DateTime.Now - car.ExpiryDate;
-                double totalHours = timespan.TotalHours;
-                if (totalHours > 0)
-                {
-                    status.Add(car, LicensePlateStatus.Expired);
-                }
-                else
-                {
-                    if (Math.Abs(totalHours) < 24 * 30.5 * 3)
-                    {
-                        status.Add(car, LicensePlateStatus.NearExpiry);
-                    }
-                    else
-                    {
-                        status.Add(car, LicensePlateStatus.Valid);
-                    }
-                }
-            }
+            Cars.ForEach(x=> status.Add(x, x.CarLicenseStatus()));
             return status;
+        }
+
+        public string ShowTaxiLicenseStatus()
+        {
+            List<string> result = new List<string> { "---- Taxi license statuses ----\n" };
+            Dictionary<Car, LicensePlateStatus> statuses = LicensePlatesStatus();
+            int cnt = 1;
+            foreach (var car in statuses)
+            {
+                ConsoleColor clr = car.Value == LicensePlateStatus.Expired ? ConsoleColor.Red : car.Value == LicensePlateStatus.NearExpiry ? ConsoleColor.Yellow : ConsoleColor.Green;
+                result.Add($"{cnt++}. {car.Key.Id} {car.Key.Model}: {helpers.ColoredString(car.Value.ToString(), clr)}");
+            }
+            return string.Join("\n", result);
         }
 
     }

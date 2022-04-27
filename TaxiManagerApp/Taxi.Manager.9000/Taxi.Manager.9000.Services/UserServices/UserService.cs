@@ -73,66 +73,17 @@ namespace Taxi.Manager._9000.Services.UserServices
             Console.WriteLine("The password has been changed");
         }
 
-        public void TerminateUser()
+        public void Logout()
         {
-            ListAllUsers();
-            Console.WriteLine("Please select the user you want to remove");
-            int choice = helpers.ValidateInput(1, Repository.Users.Count);
-            Repository.Users.Remove(Repository.Users[choice]);
-            Console.WriteLine("The user has been terminated");
-            menus.AdminMenu();
-        }
-
-        public void ListAllUsers()
-        {
-            int counter = 1;
-            foreach (User user in Repository.Users)
-            {
-                Console.WriteLine($"{counter++}. {user}");
-            }
+            currentUser = null;
         }
 
         public void Exit()
         {
             Console.WriteLine("Thank you for using our app");
-            return;
+            Thread.Sleep(3000);
+            throw new AppExitException();
         }
 
-        public void Logout()
-        {
-            currentUser = null;
-            menus.MainMenu();
-        }
-
-        public void NewUser()
-        {
-            while (true)
-            {
-                Console.WriteLine("Please enter a username (The username must be at least 5 characters long)");
-                string username = Console.ReadLine();
-                Console.WriteLine("Please enter a password (The password must be at least 5 characters long and contain at least one digit)");
-                string password = Console.ReadLine();
-                bool validUsernameAndPassword = helpers.ValidateUsernameAndPassword(username, password);
-                if (!validUsernameAndPassword)
-                {
-                    Console.WriteLine("The credentials are not valid, try again");
-                    break;
-                }
-                Console.WriteLine("Please select a role: \n1. Administrator \n2. Manager \n3. Maintainance ");
-                int choice = helpers.ValidateInput(1, 3);
-                User newUser = new User(Repository.Users.Count + 1, username, password, (Role)choice);
-                Repository.Users.Add(newUser);
-                break;
-            }
-            menus.AdminMenu();
-        }
-
-        public void BackTiMainMenu()
-        {
-            if(currentUser.Role == Role.Administrator)
-            {
-                menus.AdminMenu();
-            }
-        }
     }
 }

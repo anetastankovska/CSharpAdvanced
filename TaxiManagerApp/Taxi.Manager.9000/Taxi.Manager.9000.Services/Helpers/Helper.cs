@@ -37,14 +37,6 @@ namespace Taxi.Manager._9000.Services.Helpers
             return true;
         }
 
-        public void ListAllUsers(List<User> users)
-        {
-            int counter = 1;
-            foreach (User user in users)
-            {
-                Console.WriteLine($"{counter++}. {user}");
-            }
-        }
         public double CheckUtilized(List<Car> cars, string UtilizedCar)
         {
             int counter = 0; 
@@ -64,5 +56,13 @@ namespace Taxi.Manager._9000.Services.Helpers
             Console.WriteLine(text);
             Console.ResetColor();
         };
+
+        public void RedirectToMenu(Func<int> menu, string message)
+        {
+            Console.WriteLine(message);
+            Console.ReadLine();
+            Console.Clear();
+            menu.Invoke();
+        }
     }
 }

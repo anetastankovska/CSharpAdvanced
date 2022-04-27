@@ -75,12 +75,21 @@ namespace Taxi.Manager._9000.Services.UserServices
 
         public void TerminateUser()
         {
-            helpers.ListAllUsers(Repository.Users);
+            ListAllUsers();
             Console.WriteLine("Please select the user you want to remove");
             int choice = helpers.ValidateInput(1, Repository.Users.Count);
             Repository.Users.Remove(Repository.Users[choice]);
             Console.WriteLine("The user has been terminated");
-            menus.MainAdminMenu();
+            menus.AdminMenu();
+        }
+
+        public void ListAllUsers()
+        {
+            int counter = 1;
+            foreach (User user in Repository.Users)
+            {
+                Console.WriteLine($"{counter++}. {user}");
+            }
         }
 
         public void Exit()
@@ -115,41 +124,14 @@ namespace Taxi.Manager._9000.Services.UserServices
                 Repository.Users.Add(newUser);
                 break;
             }
-            menus.MainAdminMenu();
+            menus.AdminMenu();
         }
 
-        public void ListAllVehicles()
+        public void BackTiMainMenu()
         {
-            List<string> listedVehicles = Repository.Cars
-                                          .Select(x =>
-                                          {
-                                              return $"{x.Id}) {x.Model} with {x.LicensePlate} and utilized             {helpers.CheckUtilized(Repository.Cars, (x.Model))}%";
-                                          }).ToList();
-
-            listedVehicles.ForEach(x => Console.WriteLine(x));
-        }
-
-        public void LicensePlateStatus()
-        {
-            foreach (Car car in Repository.Cars)
+            if(currentUser.Role == Role.Administrator)
             {
-                TimeSpan timespan = DateTime.Now - car.ExpiryDate;
-                double totalHours = timespan.TotalHours;
-                if(totalHours > 0)
-                {
-                    Console.WriteLine($"Expired");
-                }
-                else
-                {
-                    if(Math.Abs(totalHours) < 24 * 30.5 * 3)
-                    {
-                        Console.WriteLine($"Less than 3 months to expire.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Valid");
-                    }
-                }
+                menus.AdminMenu();
             }
         }
     }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Taxi.Manager._9000.Models.Enums
 {
-    public enum Shift
+    public enum LicensePlateStatus
     {
-        None = 0,
-        Morning = 1,
-        Afternoon = 2,
-        Evening = 3
+        Expired,
+        NearExpiry,
+        Valid
     }
 }

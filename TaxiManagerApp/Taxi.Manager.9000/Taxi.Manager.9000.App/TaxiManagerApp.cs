@@ -48,7 +48,7 @@ namespace Taxi.Manager._9000.App
                     }
                    
                 }
-                catch (AppExitException ex)
+                catch (ApplicationException ex)
                 {
                     break;
                 }

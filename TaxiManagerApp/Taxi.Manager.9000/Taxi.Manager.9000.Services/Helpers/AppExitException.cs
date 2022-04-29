@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Taxi.Manager._9000.Services.Helpers
 {
-    public class AppExitException : Exception
+    public class AppExitException : ApplicationException
     {
     }
 }

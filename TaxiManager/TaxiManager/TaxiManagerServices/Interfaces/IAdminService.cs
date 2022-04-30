@@ -12,10 +12,10 @@ namespace Services.Interfaces
     {
         public List<IUser> Users { get; set; }
 
-        public void CreateUser();
+        public void CreateUser(List<string> credentials);
 
         public string ListUsers();
 
-        public void TerminateUser();
+        public void TerminateUser(IUser user);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Data;
 using Models.Classes;
+using Models.Enums;
 using Models.Interfaces;
 using Services.Interfaces;
 using System;
@@ -14,19 +15,28 @@ namespace Services
     {
         public List<IUser> Users { get; set; } = Repository.Users;
 
-        public void CreateUser()
+        public void CreateUser(List<string> credentials)
         {
-            throw new NotImplementedException();
+            Role role = (Role)int.Parse(credentials[2]);
+            IUser newUser = new User(Users.Count, credentials[0], credentials[1], role);
+            Users.Add(newUser);
+        }
+
+        public void CreateUser(string username, string password, int role)
+        {
+            Role r = (Role)role;
+            IUser newUser = new User(Users.Count, username, password, r);
+            Users.Add(newUser);
         }
 
         public string ListUsers()
         {
-            throw new NotImplementedException();
+            return string.Join("\n", Users.Select(x => $"{Users.IndexOf(x)+1}. {x}"));
         }
 
-        public void TerminateUser()
+        public void TerminateUser(IUser user)
         {
-            throw new NotImplementedException();
+            Users.Remove(user);
         }
     }
 }

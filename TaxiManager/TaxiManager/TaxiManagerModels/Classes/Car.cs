@@ -39,7 +39,34 @@ namespace Models.Classes
 
         public LicensePlateStatus CarLicenseStatus()
         {
-            throw new NotImplementedException();
+            TimeSpan timespan = DateTime.Now - ExpiryDate;
+            double totalHours = timespan.TotalHours;
+            if (totalHours > 0)
+            {
+                return LicensePlateStatus.Expired;
+            }
+            else
+            {
+                if (Math.Abs(totalHours) < 24 * 30.5 * 3)
+                {
+                    return LicensePlateStatus.NearExpiry;
+                }
+                else
+                {
+                    return LicensePlateStatus.Valid;
+                }
+            }
+        }
+
+        public double CheckUtilized()
+        {
+            double result = Math.Round((double)((AssignedDrivers.Count * 100) / 3), 2);
+            return result;
+        }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Model: {Model}, license plate: {LicensePlate}";
         }
     }
 }

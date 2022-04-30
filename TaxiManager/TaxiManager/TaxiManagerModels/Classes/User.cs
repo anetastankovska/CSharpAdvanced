@@ -37,7 +37,7 @@ namespace Models.Classes
 
         public override string ToString()
         {
-            return $"{Id} - {Username} {Role}";
+            return $"{Username} {Role}";
         }
     }
 }

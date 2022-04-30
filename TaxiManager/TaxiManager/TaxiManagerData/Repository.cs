@@ -18,15 +18,15 @@ namespace Data
 
         static Repository()
         {
-            Users.Add(new User(01, "admin01", "pass01", Role.Administrator));
-            Users.Add(new User(02, "admin02", "pass02", Role.Administrator));
-            Users.Add(new User(03, "admin03", "pass03", Role.Administrator));
-            Users.Add(new User(04, "manager04", "pass04", Role.Manager));
-            Users.Add(new User(05, "manager05", "pass05", Role.Manager));
-            Users.Add(new User(06, "manager06", "pass06", Role.Manager));
-            Users.Add(new User(07, "maintainance07", "pass07", Role.Maintainance));
-            Users.Add(new User(08, "maintainance08", "pass08", Role.Maintainance));
-            Users.Add(new User(07, "maintainance09", "pass09", Role.Maintainance));
+            Users.Add(new User(1, "admin01", "pass01", Role.Administrator));
+            Users.Add(new User(2, "admin02", "pass02", Role.Administrator));
+            Users.Add(new User(3, "admin03", "pass03", Role.Administrator));
+            Users.Add(new User(4, "manager04", "pass04", Role.Manager));
+            Users.Add(new User(5, "manager05", "pass05", Role.Manager));
+            Users.Add(new User(6, "manager06", "pass06", Role.Manager));
+            Users.Add(new User(7, "maintain07", "pass07", Role.Maintainance));
+            Users.Add(new User(8, "maintain08", "pass08", Role.Maintainance));
+            Users.Add(new User(7, "maintain09", "pass09", Role.Maintainance));
 
             Car toyota = new Car(1, "Toyota", "SK1234AB", DateTime.Parse("2022/04/30"));
             Car mercedez = new Car(2, "Mercedez", "SK2345AB", DateTime.Parse("2023/01/10"));

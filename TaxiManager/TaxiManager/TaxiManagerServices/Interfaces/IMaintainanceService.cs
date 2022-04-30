@@ -11,7 +11,7 @@ namespace Services.Interfaces
 {
     public interface IMaintainanceService
     {
-        public List<ICar> ListAllCars();
+        public string ListAllCars();
 
         public Dictionary<Car, LicensePlateStatus> LicensePlatesStatus();
 

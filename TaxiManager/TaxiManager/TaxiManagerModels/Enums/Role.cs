@@ -8,8 +8,8 @@ namespace Models.Enums
 {
     public enum Role
     {
-        Administrator = 0,
-        Manager = 1,
-        Maintainance = 2,
+        Administrator = 1,
+        Manager = 2,
+        Maintainance = 3,
     }
 }

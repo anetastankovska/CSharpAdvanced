@@ -1,4 +1,5 @@
 ﻿using Models.Classes;
+using Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Services.Interfaces
 {
     public interface IUserService
     {
-        public User CurrentUser { get; set; }
-        public List<User> Users { get; set; }
+        public IUser CurrentUser { get; set; }
+        public List<IUser> Users { get; set; }
 
-        public void Login();
-        public User Logout();
-        public void ChangePassword();
+        public IUser Login(string username, string password);
+        public void Logout();
+        public void ChangePassword(string newPassword);
     }
 }

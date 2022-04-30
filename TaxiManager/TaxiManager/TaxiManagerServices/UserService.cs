@@ -1,4 +1,6 @@
-﻿using Models.Classes;
+﻿using Data;
+using Models.Classes;
+using Models.Interfaces;
 using Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,22 +12,36 @@ namespace Services
 {
     public class UserService : IUserService
     {
-        public User CurrentUser { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
+        public IUser CurrentUser { get; set; }
+        public List<IUser> Users { get; set; } = Repository.Users;
 
-        public void Login()
+        public IUser Login(string username, string password)
         {
-            throw new NotImplementedException();
+            IUser selected = Users.FirstOrDefault(x => x.Username == username);
+            if(selected == default)
+            {
+                return null;
+            }
+            else
+            {
+                if(selected.GetPassword() != password)
+                {
+                    return null;
+                }
+            }
+            CurrentUser = selected;
+            return CurrentUser;
         }
 
-        public User Logout()
+        public void Logout()
         {
-            throw new NotImplementedException();
+            CurrentUser = null;
         }
 
-        public void ChangePassword()
+        public void ChangePassword(string newPassword)
         {
-            throw new NotImplementedException();
+            CurrentUser.SetPassword(newPassword);
         }
+
     }
 }

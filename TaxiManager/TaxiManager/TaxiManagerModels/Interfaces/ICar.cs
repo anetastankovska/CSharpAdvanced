@@ -15,6 +15,7 @@ namespace Models.Interfaces
         public DateTime ExpiryDate { get; set; }
         public List<IDriver> AssignedDrivers { get; set; }
 
+        public double CheckUtilized();
         public bool IsCarAvailable(Shift shift);
         public LicensePlateStatus CarLicenseStatus();
     }

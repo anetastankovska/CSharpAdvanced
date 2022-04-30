@@ -17,9 +17,9 @@ namespace Services
         public List<ICar> Cars { get; set; } = Repository.Cars;
 
         Helpers helpers = new Helpers();
-        public List<ICar> ListAllCars()
+        public string ListAllCars()
         {
-            throw new NotImplementedException();
+            return string.Join("\n", Cars.Select(x => $"{Cars.IndexOf(x) + 1}. {x} {x.CheckUtilized()}%"));
         }
 
         public Dictionary<Car, LicensePlateStatus> LicensePlatesStatus()

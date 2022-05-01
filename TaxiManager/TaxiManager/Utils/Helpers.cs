@@ -19,7 +19,6 @@ namespace Utils
             return choice;
         }
 
-        //Helper method for the menus
         public int ReturnValidChoice(int min, int max)
         {
             while (true)
@@ -126,6 +125,15 @@ namespace Utils
 
         }
 
+        public void LogoutMock()
+        {
+            Console.Write("Logging out");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write(".");
+                Thread.Sleep(500);
+            }
+        }
 
         public string ColoredString(string text, ConsoleColor color)
         {
@@ -150,14 +158,6 @@ namespace Utils
             menu.Invoke();
         }
 
-        public void LogoutMock()
-        {
-            Console.Write("Logging out");
-            for (int i = 0; i < 3; i++)
-            {
-                Console.Write(".");
-                Thread.Sleep(500);
-            }
-        }
+        
     }
 }

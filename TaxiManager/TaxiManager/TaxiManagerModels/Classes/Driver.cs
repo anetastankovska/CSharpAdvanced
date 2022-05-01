@@ -15,9 +15,7 @@ namespace Models.Classes
         public Shift Shift { get; set; }
         public ICar Car { get; set; }
         public string License { get; set; }
-        DateTime LicenseExpiryDate { get; set; }
-       
-        DateTime IDriver.LicenseExpiryDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DateTime LicenseExpiryDate { get; set; }
 
         public Driver() { }
 
@@ -32,6 +30,10 @@ namespace Models.Classes
             LicenseExpiryDate = licenseExpiryDate;
         }
 
+        public DriverLicenseStatus DriverLicenseStatus()
+        {
+
+        }
         public override string ToString()
         {
             return $"{Id} {FirstName} {LastName}. Shift: {Shift}, car: {Car}, license: {License}, license expiry date: {LicenseExpiryDate}";

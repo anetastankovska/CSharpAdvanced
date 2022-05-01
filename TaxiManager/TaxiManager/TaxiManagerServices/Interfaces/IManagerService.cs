@@ -12,7 +12,7 @@ namespace Services.Interfaces
     {
         public List<IDriver> Drivers { get; set; }
         public List<ICar> Cars { get; set; }
-        public List<IDriver> ListDrivers();
+        public string ListDrivers();
         public string TaxiLicenseStatus();
         public IDriver AssignDriver();
         public IDriver UnassignDriver();

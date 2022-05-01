@@ -14,6 +14,8 @@ namespace Models.Interfaces
         public Shift Shift { get; set; }
         public ICar Car { get; set; }
         public string License { get; set; }
-        DateTime LicenseExpiryDate { get; set; }
+        public DateTime LicenseExpiryDate { get; set; }
+
+        public DriverLicenseStatus DriverLicenseStatus();
     }
 }

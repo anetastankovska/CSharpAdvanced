@@ -15,13 +15,21 @@ namespace Services
         public List<IDriver> Drivers { get; set; } = Repository.Drivers;
         public List<ICar> Cars { get; set; } = Repository.Cars;
 
-        public List<IDriver> ListDrivers()
+        MaintainanceService MaintainanceService = new MaintainanceService();
+
+        public string ListDrivers()
         {
-            throw new NotImplementedException();
+            List<string> strList = new List<string>();
+            int cnt = 1;
+            foreach (IDriver driver in Drivers)
+            {
+                
+            }
+
         }
         public string TaxiLicenseStatus()
         {
-            throw new NotImplementedException();
+            return MaintainanceService.ShowTaxiLicenseStatus();
         }
         public IDriver AssignDriver()
         {

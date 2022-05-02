@@ -85,11 +85,19 @@ namespace Utils
                         continue;
                     }
                     Console.Clear();
-                    Console.WriteLine("Select a role: \n1. Administrator \n2. Manager \n3. Maintainance");
-                    int choice = ReturnValidChoice(1, 3);
+                    Console.WriteLine("Select a role: \n1. Administrator \n2. Manager \n3. Maintainance \n\n4. Back to main menu");
+                    int choice = ReturnValidChoice(1, 4);
+                    if(choice == 4)
+                    {
+                        throw new OperationCanceledException("Back to main Admin menu");
+                    }
                     string chosenStr = choice.ToString();
                     credentials.Add(chosenStr);
                     break;
+                }
+                catch (OperationCanceledException ex)
+                {
+                    throw ex;
                 }
                 catch (Exception)
                 {

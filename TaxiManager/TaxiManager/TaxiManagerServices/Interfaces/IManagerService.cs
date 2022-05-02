@@ -1,4 +1,5 @@
 ﻿using Models.Classes;
+using Models.Enums;
 using Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,11 @@ namespace Services.Interfaces
     {
         public List<IDriver> Drivers { get; set; }
         public List<ICar> Cars { get; set; }
-        public string ListDrivers();
-        public string TaxiLicenseStatus();
-        public IDriver AssignDriver();
-        public IDriver UnassignDriver();
+        public List<IDriver> ListUnassignedDrivers();
+        public string AssignDriver(List<IDriver> unassignedDrivers, int driverNum, Shift shift, ICar car);
+        public List<ICar> ShowAvailableCars(Shift selectedShift);
+        public List<IDriver> ListAssignedDrivers();
+        public string UnassignDriver(List<IDriver> assignedDrivers, int driverNum);
 
     }
 }

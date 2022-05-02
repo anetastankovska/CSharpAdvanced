@@ -28,17 +28,22 @@ namespace Models.Classes
             Car = car;
             License = license;
             LicenseExpiryDate = licenseExpiryDate;
+            Car.AssignedDrivers.Add(this);
+        }
+
+        //public DriverLicenseStatus DriverLicenseStatus()
+        //{
+
+        //}
+        public override string ToString()
+        {
+            return $"Id: {Id} {FirstName} {LastName}. Shift: {Shift}, car: {Car}, license: {License}, license expiry date: {LicenseExpiryDate.Date}";
         }
 
         public DriverLicenseStatus DriverLicenseStatus()
         {
-
+            throw new NotImplementedException();
         }
-        public override string ToString()
-        {
-            return $"{Id} {FirstName} {LastName}. Shift: {Shift}, car: {Car}, license: {License}, license expiry date: {LicenseExpiryDate}";
-        }
-
     }
 }
 

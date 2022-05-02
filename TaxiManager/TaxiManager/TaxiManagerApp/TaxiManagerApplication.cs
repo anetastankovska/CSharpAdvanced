@@ -82,6 +82,10 @@ namespace TaxiManagerApp
                     Console.WriteLine("Thank you for using our app");
                     return;
                 }
+                catch (OperationCanceledException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -103,9 +107,13 @@ namespace TaxiManagerApp
                     {
                         Console.Clear();
                         Console.WriteLine($"Select a user from the list below: \n{AdminService.ListUsers()}");
-                        string selection = Console.ReadLine();
-                        int choice = helpers.ValidateInput(selection, 1, UserService.Users.Count);
-                        IUser selectedUser = UserService.Users[choice - 1];
+                        Console.WriteLine($"\n\n{UserService.Users.Count + 1}. Back to main menu.");
+                        int choice1 = helpers.ReturnValidChoice(1, UserService.Users.Count + 1);
+                        if (choice1 == UserService.Users.Count + 1)
+                        {
+                            throw new OperationCanceledException("Back to main Admin menu");
+                        }
+                        IUser selectedUser = UserService.Users[choice1 - 1];
                         if(selectedUser == UserService.CurrentUser)
                         {
                             Console.WriteLine("You cannot remove yourself. Press enter to select another user");
@@ -119,6 +127,7 @@ namespace TaxiManagerApp
                     }
                     break;
                 case 3:
+                    Console.Clear();
                     string newPass = helpers.RequestPassChange(UserService.CurrentUser.GetPassword());
                     UserService.ChangePassword(newPass);
                     Console.WriteLine("The password has been successfully changed");
@@ -134,8 +143,6 @@ namespace TaxiManagerApp
                 default:
                     break;
             }
-
-
         }
 
         public void MaintainanceFlow()
@@ -146,11 +153,13 @@ namespace TaxiManagerApp
                 case 1:
                     Console.Clear();
                     Console.WriteLine($"List of all vehicles \n{MaintainanceService.ListAllCars()}");
+                    Console.WriteLine("\n\n [Enter] Back to main menu");
                     Console.ReadLine();
                     break;
                 case 2:
                     Console.Clear();
                     Console.WriteLine(MaintainanceService.ShowTaxiLicenseStatus());
+                    Console.WriteLine("\n\n [Enter] Back to main menu");
                     Console.ReadLine();
                     break;
                 case 3:
@@ -174,12 +183,67 @@ namespace TaxiManagerApp
 
         public void ManagerFlow()
         {
-            int selectedOption = menus.MaintainanceMenu();
+            int selectedOption = menus.ManagerMenu();
             switch (selectedOption)
             {
                 case 1:
+                    Console.Clear();
+                    List<IDriver> unassignedDrivers = ManagerService.ListUnassignedDrivers();
+                    if (unassignedDrivers == null)
+                    {
+                        Console.WriteLine("All the drivers are on charge at the moment.");
+                        break;
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Please select a driver to assign it: \n");
+                    Console.WriteLine(string.Join("\n", unassignedDrivers.Select(x => $"{unassignedDrivers.IndexOf(x) + 1}. {x}")));
+                    Console.WriteLine($"\n\n{unassignedDrivers.Count + 1}. Back to main menu.");
+                    int selectedDriverToAssign = helpers.ReturnValidChoice(1, unassignedDrivers.Count + 1);
+                    if (selectedDriverToAssign == unassignedDrivers.Count + 1)
+                    {
+                        throw new OperationCanceledException("Back to main Manager menu");
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Please select a shift: \n1. Morning \n2. Afternoon \n3. Evening \n4. Back to main menu");
+                    int choice = helpers.ReturnValidChoice(1, 4);
+                    if (choice == 4)
+                    {
+                        throw new OperationCanceledException("Back to main Manager menu");
+                    }
+                    Shift selectedShift = (Shift)choice;
+                    Console.Clear();
+                    Console.WriteLine("Please select a car");
+                    List<ICar> availableCars = ManagerService.ShowAvailableCars(selectedShift);
+                    Console.WriteLine(string.Join("\n", availableCars.Select(x => $"{availableCars.IndexOf(x)+1}. {x}")));
+                    Console.WriteLine($"{availableCars.Count +1}. Back to main menu");
+                    int choice1 = helpers.ReturnValidChoice(1, availableCars.Count + 1);
+                    if (choice1 == availableCars.Count + 1)
+                    {
+                        throw new OperationCanceledException("Back to main Manager menu");
+                    }
+                    ICar car = availableCars[choice1-1];
+                    Console.WriteLine(ManagerService.AssignDriver(unassignedDrivers, selectedDriverToAssign, selectedShift, car));
+                    Console.ReadLine();
                     break;
                 case 2:
+                    Console.Clear();
+                    List<IDriver> assignedDrivers = ManagerService.ListAssignedDrivers();
+                    if (assignedDrivers == null)
+                    {
+                        Console.WriteLine("All the drivers are resting at the moment.");
+                        break;
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Please select a driver to unassign it: \n");
+                    Console.WriteLine(string.Join("\n", assignedDrivers.Select(x => $"{assignedDrivers.IndexOf(x) + 1}. {x}")));
+                    Console.WriteLine($"\n\n{assignedDrivers.Count + 1}. Back to main menu.");
+                    int selectedDriverToUnassign = helpers.ReturnValidChoice(1, assignedDrivers.Count + 1);
+                    if (selectedDriverToUnassign == assignedDrivers.Count + 1)
+                    {
+                        throw new OperationCanceledException("Back to main Manager menu");
+                    }
+                    Console.WriteLine(ManagerService.UnassignDriver(assignedDrivers, selectedDriverToUnassign));
+                    Console.ReadLine();
                     break;
                 case 3:
                     Console.Clear();
@@ -200,5 +264,4 @@ namespace TaxiManagerApp
             }
         }
     }
-
 }

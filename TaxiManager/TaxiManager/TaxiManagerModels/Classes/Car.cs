@@ -34,7 +34,15 @@ namespace Models.Classes
 
         public bool IsCarAvailable(Shift shift)
         {
-            throw new NotImplementedException();
+            int compare = DateTime.Compare(ExpiryDate, DateTime.Now.Date);
+            if (compare < 1)
+            {
+                return false;
+            }
+            else
+            {
+                return !AssignedDrivers.Select(x => x.Shift).Contains(shift);
+            }
         }
 
         public LicensePlateStatus CarLicenseStatus()

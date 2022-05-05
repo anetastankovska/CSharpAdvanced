@@ -43,6 +43,29 @@ namespace Taxi.Manager._9000.Services.ManagerServices
             return unassignedDrivers[choice - 1];
         }
 
+        private List<Driver> ListAssignedDrivers()
+        {
+            List<Driver> assignedDrivers = Drivers.Where(x => x.Shift != Shift.None).ToList();
+            int counter = 1;
+            foreach (Driver driver in assignedDrivers)
+            {
+                Console.WriteLine($"{counter++}. {driver}");
+            }
+            return assignedDrivers;
+        }
+
+        public void UnassignDrivers()
+        {
+            int choice = 0;
+            List<Driver> assignedDrivers = ListAssignedDrivers();
+            if (assignedDrivers.Count == 0)
+            {
+                helpers.RedirectToMenu(menus.AdminMenu, "All the drivers are resting at the moment. \nPress enter to continue");
+            }
+            choice = helpers.ValidateInput(1, assignedDrivers.Count);
+            assignedDrivers[choice - 1].Shift = SelectShift();
+        }
+
         private Shift SelectShift()
         {
             Console.WriteLine("Please select a shift: \n1. Morning \n2. Afternoon \n3. Evening");
@@ -74,27 +97,6 @@ namespace Taxi.Manager._9000.Services.ManagerServices
             availableCars[choice - 1].AssignedDrivers.Add(AssignDriver());
         }
 
-        private List<Driver> ListAssignedDrivers()
-        {
-            List<Driver> assignedDrivers = Drivers.Where(x => x.Shift != Shift.None).ToList();
-            int counter = 1;
-            foreach (Driver driver in assignedDrivers)
-            {
-                Console.WriteLine($"{counter++}. {driver}");
-            }
-            return assignedDrivers;
-        }
-
-        public void UnassignDrivers() 
-        {
-            int choice = 0;
-            List<Driver> assignedDrivers = ListAssignedDrivers();
-            if (assignedDrivers.Count == 0)
-            {
-                helpers.RedirectToMenu(menus.AdminMenu, "All the drivers are resting at the moment. \nPress enter to continue");
-            }
-            choice = helpers.ValidateInput(1, assignedDrivers.Count);
-            assignedDrivers[choice - 1].Shift = SelectShift();
-        }
+        
     }
 }

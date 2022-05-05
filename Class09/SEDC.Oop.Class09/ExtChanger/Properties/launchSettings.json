@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExtChanger.Properties
+{
+  "profiles": {
+    "ExtChanger": {
+      "commandName": "Project",
+      "commandLineArgs": "TextFile1.txt log"
+    },
+    "ExtChanger2": {
+      "commandName": "Project",
+      "commandLineArgs": "TextFile1.txt log"
+    }
+
+  }
+}

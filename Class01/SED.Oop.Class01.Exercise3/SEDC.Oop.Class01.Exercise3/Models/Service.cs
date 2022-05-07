@@ -8,7 +8,7 @@ namespace SEDC.Oop.Class01.Exercise3.Models
 {
     public class Service
     {
-        public static void Main (params string[] args)
+        public static void Main(params string[] args)
         {
             int mainMenuSelection = MainMenu();
             switch (mainMenuSelection)
@@ -18,6 +18,7 @@ namespace SEDC.Oop.Class01.Exercise3.Models
                     break;
                 case 2:
                     Stats();
+                    Game();
                     break;
                 case 3:
                     Exit();
@@ -29,6 +30,7 @@ namespace SEDC.Oop.Class01.Exercise3.Models
 
         public static int MainMenu()
         {
+            Console.Clear();
             Console.WriteLine("Please select option: \n1. New Game \n2. Stats \n3. Exit");
             int selection = ValidateInput(1, 3);
             return selection;
@@ -36,12 +38,24 @@ namespace SEDC.Oop.Class01.Exercise3.Models
 
         public static void Stats()
         {
-
+            Console.Clear();
+            Console.WriteLine("You haven't played yet. \nThe stats will be shown at the upper left corner of your screen once you start the game.");
+            Console.WriteLine("\nPress enter to return back to main menu.");
+            Console.ReadLine();
         }
 
         public static void Exit()
         {
-            return;
+            try
+            {
+                Console.WriteLine("Thank you for using out app!");
+                Console.ReadLine();
+                throw new ApplicationException("Bye bye till next time :)");
+            }
+            catch (ApplicationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static int UserChoice()
@@ -50,12 +64,6 @@ namespace SEDC.Oop.Class01.Exercise3.Models
             return validInt;
 
         }
-        //public static int SelectRandomNum1()
-        //{
-        //    Random rnd = new Random();
-        //    int selected = rnd.Next(1, 3);
-        //    return selected;
-        //}
 
         public static int SelectRandomNum()
         {
@@ -65,21 +73,31 @@ namespace SEDC.Oop.Class01.Exercise3.Models
             return selected;
         }
 
+
         public static int ValidateInput(int min, int max)
         {
-            int result;
-            string input = Console.ReadLine();
-            while (int.TryParse(input, out result) && result < min || result > max)
+            while (true)
             {
-                Console.WriteLine("Please enter a valid input.");
-                input = Console.ReadLine();
+                try
+                {
+                    string input = Console.ReadLine();
+                    int parsedChoice = int.Parse(input);
+                    if (parsedChoice >= min && parsedChoice <= max)
+                    {
+                        return parsedChoice;
+                    }
+                    Console.WriteLine("The input is not valid. Try again!");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("The input is not valid. Try again!");
+                }
             }
-            return result;
-
         }
+
         public static void ShowPicks(int userNum, int computerNum)
         {
-            
+
             switch (userNum)
             {
                 case 1:
@@ -119,17 +137,17 @@ namespace SEDC.Oop.Class01.Exercise3.Models
             ShowPicks(user, pc);
             int winner = 0;
 
-            if(user == 1 && pc == 1)
+            if (user == 1 && pc == 1)
             {
                 Console.WriteLine("User: rock, computer: rock.");
                 Console.WriteLine("Noone wins");
             }
-            else if(user == 2 && pc == 2)
+            else if (user == 2 && pc == 2)
             {
                 Console.WriteLine("User: paper, computer: paper.");
                 Console.WriteLine("Noone wins");
             }
-            else if( user == 3 && pc == 3)
+            else if (user == 3 && pc == 3)
             {
                 Console.WriteLine("User: scissors, computer: scissors.");
                 Console.WriteLine("Noone wins");
@@ -148,7 +166,7 @@ namespace SEDC.Oop.Class01.Exercise3.Models
                 Console.WriteLine("User wins point");
                 winner = 1;
             }
-            else if(user == 2 && pc == 1)
+            else if (user == 2 && pc == 1)
             {
                 Console.WriteLine("User: paper, computer: rock.");
                 Console.WriteLine("Paper beats rock");
@@ -162,7 +180,7 @@ namespace SEDC.Oop.Class01.Exercise3.Models
                 Console.WriteLine("Computer wins point");
                 winner = 2;
             }
-            else if(user == 3 && pc == 1)
+            else if (user == 3 && pc == 1)
             {
                 Console.WriteLine("User: scissors, computer: rock.");
                 Console.WriteLine("Rock beats scissors");
@@ -183,14 +201,16 @@ namespace SEDC.Oop.Class01.Exercise3.Models
         {
             float userPoints = 0;
             float computerPoints = 0;
+            float totalPoints = 0;
             float wins = 0;
             float loses = 0;
             float attempts = 0;
             while (true)
             {
                 attempts++;
-                wins = (userPoints / attempts) * 100;
-                loses = (computerPoints / attempts) * 100;
+                totalPoints = userPoints + computerPoints;
+                wins = totalPoints == 0 ? 0 : (userPoints / totalPoints) * 100;
+                loses = totalPoints == 0 ? 0 : (computerPoints / totalPoints) * 100;
 
 
                 Console.Clear();

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.Oop.ClassWork", "SEDC.Oop.ClassWork\SEDC.Oop.ClassWork.csproj", "{4F7BB442-5581-43FA-94F3-6ACD647E97A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyCalculator", "FancyCalculator\FancyCalculator.csproj", "{8569BC4C-57FE-4117-A44B-A9C9B35C2474}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F7BB442-5581-43FA-94F3-6ACD647E97A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7BB442-5581-43FA-94F3-6ACD647E97A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7BB442-5581-43FA-94F3-6ACD647E97A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7BB442-5581-43FA-94F3-6ACD647E97A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8569BC4C-57FE-4117-A44B-A9C9B35C2474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8569BC4C-57FE-4117-A44B-A9C9B35C2474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8569BC4C-57FE-4117-A44B-A9C9B35C2474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8569BC4C-57FE-4117-A44B-A9C9B35C2474}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B553C212-E3E4-4F37-ABC7-145A3F04BB49}
+	EndGlobalSection
+EndGlobal

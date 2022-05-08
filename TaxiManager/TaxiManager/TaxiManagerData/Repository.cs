@@ -15,7 +15,7 @@ namespace Data
         public static List<IDriver> Drivers { get; set; } = new List<IDriver>();
         public static List<IUser> Users { get; set; } = new List<IUser>();
 
-
+        
         static Repository()
         {
             Users.Add(new User(1, "admin01", "pass01", Role.Administrator));

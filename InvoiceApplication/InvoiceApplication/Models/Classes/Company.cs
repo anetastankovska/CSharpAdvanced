@@ -36,5 +36,10 @@ namespace Models.Classes
             admin.Company = this;
             Admin = admin;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

@@ -50,12 +50,12 @@ namespace TaxiManagerApp
                                 break;
                             }
                         }
-                        
+                        else if (selection == 2)
+                        {
+                            throw new ApplicationException();
+                        }
                     }
-                    else if (selection == 2)
-                    {
-                        throw new ApplicationException();
-                    }
+                    
                     Role role = UserService.CurrentUser.Role;
 
                     Console.Clear();

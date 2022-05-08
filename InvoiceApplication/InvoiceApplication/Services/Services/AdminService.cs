@@ -1,4 +1,5 @@
-﻿using Models.Interfaces;
+﻿using Data;
+using Models.Interfaces;
 using Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,20 @@ namespace Services.Services
     {
         public List<IAdmin> Admins { get; set; } = new List<IAdmin>();
 
-        public List<IInvoice> GetAllInvoices()
+        public List<IInvoice> GetAllInvoices(ICompany company)
         {
-            return null;
-            //List<IInvoice> invoices = 
+            ICompany cmp = Repository.Companies.FirstOrDefault(x => x == company);
+            if (cmp != null)
+            {
+                return cmp.Invoices;
+            }
+            return new List<IInvoice>();
         }
 
-        public string ShowInvoices()
+        public string ShowInvoices(ICompany company)
         {
-            return "";
+            List<IInvoice> invoices = GetAllInvoices(company);
+            return string.Join("\n", invoices.Select(x => $"{invoices.IndexOf(x) + 1}. {x}"));
         }
-
     }
 }

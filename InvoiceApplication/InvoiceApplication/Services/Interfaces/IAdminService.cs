@@ -10,7 +10,7 @@ namespace Services.Interfaces
     public interface IAdminService
     {
         public List<IAdmin> Admins { get; set; }
-        public List<IInvoice> GetAllInvoices();
-        public string ShowInvoices();
+        public List<IInvoice> GetAllInvoices(ICompany company);
+        public string ShowInvoices(ICompany company);
     }
 }

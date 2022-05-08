@@ -37,7 +37,7 @@ namespace Models.Classes
 
         public override string ToString()
         {
-            return $"{Company} - {Amount}. Date of issue {DateOfIssue.Date}, Due Date: {DueDate.Date}";
+            return $"{Company} - {Amount}. Date of issue {DateOfIssue.ToShortDateString()}, Due Date: {DueDate.ToShortDateString()}";
         }
     }
 }

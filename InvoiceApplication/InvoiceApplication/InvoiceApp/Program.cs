@@ -1,2 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using InvoiceApp;
+using Services.Interfaces;
+using Services.Services;
+using Utils;
+
+
+InvoiceApplication app = new InvoiceApplication();
+app.Start();
+

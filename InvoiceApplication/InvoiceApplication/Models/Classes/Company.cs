@@ -19,5 +19,22 @@ namespace Models.Classes
             Invoices = new List<IInvoice>();
             Admin = admin;
         }
+        public Company(string name)
+        {
+            Name = name;
+            Invoices = new List<IInvoice>();
+        }
+
+        public void AddInvoice(IInvoice invoice)
+        {
+            invoice.Company = this;
+            Invoices.Add(invoice);
+        }
+
+        public void AssignAdmin(IAdmin admin)
+        {
+            admin.Company = this;
+            Admin = admin;
+        }
     }
 }

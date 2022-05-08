@@ -18,6 +18,7 @@ namespace Models.Classes
             CurrentBalance = currentBalance;
             Invoices = new List<IInvoice>();
         }
+
         public override string ToString()
         {
             return $"{FirstName} {LastName}";

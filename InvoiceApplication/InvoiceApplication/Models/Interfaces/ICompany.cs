@@ -12,5 +12,8 @@ namespace Models.Interfaces
         public string Name { get; set; }
         public List<IInvoice> Invoices { get; set; }
         public IAdmin Admin { get; set; }
+
+        public void AddInvoice(IInvoice invoice);
+        public void AssignAdmin(IAdmin admin);
     }
 }

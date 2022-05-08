@@ -9,10 +9,12 @@ namespace Models.Interfaces
     public interface IInvoice
     {
         public ICompany Company { get; set; }
+        public IUser User { get; set; }
         public long InvoiceNumber { get; set; }
         public int Amount { get; set; }
-        public DateTime DueDate { get; set; }
         public DateTime DateOfIssue { get; set; }
+        public DateTime DueDate { get; set; }
+        public bool IsInvoicePaid { get; set; }
 
     }
 }

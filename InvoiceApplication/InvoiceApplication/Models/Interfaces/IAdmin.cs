@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.Interfaces
 {
-    public interface IAdmin
+    public interface IAdmin : IBaseUser
     {
         public ICompany Company { get; set; }
     }

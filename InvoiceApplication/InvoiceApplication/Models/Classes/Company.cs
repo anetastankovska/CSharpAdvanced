@@ -11,6 +11,7 @@ namespace Models.Classes
     {
         public string Name { get; set; }
         public List<IInvoice> Invoices { get; set; }
+        public List<IUser> Users { get; set; }  
         public IAdmin Admin { get; set; }
 
         public Company(string name, IAdmin admin)
@@ -29,6 +30,14 @@ namespace Models.Classes
         {
             invoice.Company = this;
             Invoices.Add(invoice);
+        }
+
+        public void IssueInvoice(IUser user, IInvoice invoice)
+        {
+            invoice.Company = this;
+            invoice.User = user;
+            Invoices.Add(invoice);
+            user.Invoices.Add(invoice);
         }
 
         public void AssignAdmin(IAdmin admin)

@@ -62,13 +62,16 @@ namespace InvoiceApp
                     //add the rest of the code here
                     if (baseUserService.CurrentUser.GetType() == typeof(User))
                     {
-                        IUser currentUser = (IUser)baseUserService.CurrentUser;
-
+                        UserFlow();
                     }
                     else if (baseUserService.CurrentUser.GetType() == typeof(Admin))
                     {
                         AdminFlow();
                     }
+                }
+                catch (ApplicationException ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
                 catch (Exception ex)
                 {
@@ -81,8 +84,8 @@ namespace InvoiceApp
 
         public void AdminFlow()
         {
-            IAdmin currentAdmin = (IAdmin)baseUserService.CurrentUser;
-            Console.WriteLine($"The current invoices {currentAdmin.Company} has are: \n\n{adminService.ShowInvoices(currentAdmin.Company)} \n\nPress enter to log out");
+            adminService.CurrentAdmin = (IAdmin)baseUserService.CurrentUser;
+            Console.WriteLine($"The current invoices {adminService.CurrentAdmin.Company} has are: \n\n{adminService.ShowInvoices(adminService.CurrentAdmin.Company)} \n\nPress enter to log out");
             Console.ReadLine();
             Console.Write("Logging out");
             for (int i = 0; i < 4; i++)
@@ -96,7 +99,49 @@ namespace InvoiceApp
 
         public void UserFlow()
         {
-
+            userService.CurrentUser = (IUser)baseUserService.CurrentUser;
+            int selection = Menus.UserMenu();
+            switch (selection)
+            {
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine($"Your current balance is {userService.CheckBalance()} MKD");
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.Clear();
+                    int amount = Helpers.CheckDeposit();
+                    userService.CashDeposit(amount);
+                    Console.WriteLine($"Your current balance is {userService.CurrentUser.CurrentBalance}");
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine($"Your current invoices: \n\n{userService.ShowAllInvoices()}");
+                    Console.ReadLine();
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine($"Please select the invoice you want to pay: \n\n{userService.ShowUnpaidInvoices()}");
+                    int selectedInvoice = Helpers.ValidadeInput(1, userService.GetUnpaidInvoices().Count);
+                    IInvoice invoiceToPay = userService.PickInvoice(selectedInvoice);
+                    userService.PayInvoice(invoiceToPay);
+                    Console.WriteLine($"The invoice {invoiceToPay} has been paid");
+                    Console.ReadLine();
+                    break;
+                case 5:
+                    Console.Write("Logging out");
+                    for (int i = 0; i < 4; i++)
+                    {
+                        Console.Write(".");
+                        Thread.Sleep(500);
+                    }
+                    Console.Clear();
+                    baseUserService.Logout();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

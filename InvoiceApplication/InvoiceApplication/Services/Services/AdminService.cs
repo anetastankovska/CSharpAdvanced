@@ -11,6 +11,7 @@ namespace Services.Services
 {
     public class AdminService : IAdminService
     {
+        public IAdmin CurrentAdmin { get; set; }
         public List<IAdmin> Admins { get; set; } = new List<IAdmin>();
 
         public List<IInvoice> GetAllInvoices(ICompany company)

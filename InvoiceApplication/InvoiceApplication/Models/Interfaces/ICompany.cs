@@ -13,6 +13,7 @@ namespace Models.Interfaces
         public List<IInvoice> Invoices { get; set; }
         public IAdmin Admin { get; set; }
 
+        public void IssueInvoice(IUser user, IInvoice invoice);
         public void AddInvoice(IInvoice invoice);
         public void AssignAdmin(IAdmin admin);
     }

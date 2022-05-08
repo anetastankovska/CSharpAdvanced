@@ -1,4 +1,5 @@
-﻿using Models.Classes;
+﻿using Data;
+using Models.Classes;
 using Models.Interfaces;
 using Services.Interfaces;
 using System;
@@ -24,9 +25,9 @@ namespace Services.Services
             CurrentUser.CurrentBalance += deposit;
             return CurrentUser.CurrentBalance;
         }
-
         public string ShowAllInvoices()
         {
+
             List<string> allUserInvoices = CurrentUser.Invoices.Select(x => $"{CurrentUser.Invoices.IndexOf(x) + 1}. {x}").ToList();
             return string.Join("\n", allUserInvoices); 
         }

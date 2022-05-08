@@ -35,6 +35,14 @@ namespace Models.Classes
             IsInvoicePaid = isPaid;
         }
 
+        public Invoice(int amount, DateTime dateOfIssue, DateTime dueDate, bool isPaid)
+        {
+            Amount = amount;
+            DateOfIssue = dateOfIssue;
+            DueDate = dueDate;
+            IsInvoicePaid = isPaid;
+        }
+
         public override string ToString()
         {
             return $"{Company} - {Amount}. Date of issue {DateOfIssue.ToShortDateString()}, Due Date: {DueDate.ToShortDateString()}";

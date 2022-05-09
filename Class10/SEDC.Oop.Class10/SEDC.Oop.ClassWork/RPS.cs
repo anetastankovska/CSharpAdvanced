@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace SEDC.Oop.ClassWork
 {
-    public enum RPS
+    internal enum RPS
     {
         Rock,
         Paper,
         Scissors
     }
-
-    public class RPSGame
+    class RPSGame
     {
+        public RPS PlayerOne { get; set; }
+        public RPS PlayerTwo { get; set; }
     }
+
+    record RPSGameRecord(RPS PlayerOne, RPS PlayerTwo);
 }

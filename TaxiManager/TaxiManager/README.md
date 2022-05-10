@@ -1,5 +1,6 @@
 # **Taxi Manager 9000** 
-### A taxi company wants an app that can manage their taxi cars and drivers. This app should be able to track license plates and driver's licenses expiry dates, list all cars and drivers as well as assign and unassign drivers from a car and a shift. It should have some fail-safe mechanisms when people enter undesirable input. It should also have users and different users should be able to do different stuff in the app.
+
+A taxi company wants an app that can manage their taxi cars and drivers. This app should be able to track license plates and driver's licenses expiry dates, list all cars and drivers as well as assign and unassign drivers from a car and a shift. It should have some fail-safe mechanisms when people enter undesirable input. It should also have users and different users should be able to do different stuff in the app.
 
 - Use Cases
   - Log in

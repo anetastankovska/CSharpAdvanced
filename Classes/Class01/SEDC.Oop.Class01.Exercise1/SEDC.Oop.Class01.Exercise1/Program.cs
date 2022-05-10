@@ -6,8 +6,6 @@ public class Program
     {
 
         TextCounter();
-
-
         Console.ReadLine();
 
     }
@@ -16,11 +14,10 @@ public class Program
     {
         
         List<string> names = new List<string>();
-
+        string name = string.Empty;
         do
         {
-            string name = string.Empty;
-            Console.WriteLine("Enter a namew");
+            Console.WriteLine("Enter a name");
             if (name.ToLower() == "x")
             {
                 break;
@@ -38,17 +35,17 @@ public class Program
 
         string[] enteredWords = enteredText.Split(' ');
 
-        foreach (string name in names)
+        foreach (string n in names)
         {
             int counter = 0;
             foreach(string word in enteredWords)
             {
-                if(word.ToLower() == name.ToLower())
+                if(word.ToLower() == n.ToLower())
                 {
                     counter++;
                 }
             }
-            Console.WriteLine($"string {name}: {counter}");
+            Console.WriteLine($"string {n}: {counter}");
             
         }
     }

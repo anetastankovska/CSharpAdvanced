@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace Models.Classes
 {
@@ -15,9 +16,9 @@ namespace Models.Classes
         public int Amount { get; set; }
         public DateTime DateOfIssue { get; set; }
         public DateTime DueDate { get; set; }
-        public bool IsInvoicePaid { get; set; }
+        public string IsInvoicePaid { get; set; }
 
-        public Invoice(ICompany company, IUser user, int amount, DateTime dateOfIssue, DateTime dueDate, bool isPaid)
+        public Invoice(ICompany company, IUser user, int amount, DateTime dateOfIssue, DateTime dueDate, string isPaid)
         {
             Company = company;
             User = user;
@@ -26,7 +27,7 @@ namespace Models.Classes
             DueDate = dueDate;
             IsInvoicePaid = isPaid;
         }
-        public Invoice(IUser user ,int amount, DateTime dateOfIssue, DateTime dueDate, bool isPaid)
+        public Invoice(IUser user, int amount, DateTime dateOfIssue, DateTime dueDate, string isPaid)
         {
             User = user;
             Amount = amount;
@@ -35,7 +36,7 @@ namespace Models.Classes
             IsInvoicePaid = isPaid;
         }
 
-        public Invoice(int amount, DateTime dateOfIssue, DateTime dueDate, bool isPaid)
+        public Invoice(int amount, DateTime dateOfIssue, DateTime dueDate, string isPaid)
         {
             Amount = amount;
             DateOfIssue = dateOfIssue;
@@ -45,7 +46,7 @@ namespace Models.Classes
 
         public override string ToString()
         {
-            return $"{Company} - {Amount}. Date of issue {DateOfIssue.ToShortDateString()}, Due Date: {DueDate.ToShortDateString()}";
+            return $"{Company} - {Amount}. Date of issue {DateOfIssue.ToShortDateString()}, Due Date: {DueDate.ToShortDateString()} - {IsInvoicePaid}";
         }
     }
 }

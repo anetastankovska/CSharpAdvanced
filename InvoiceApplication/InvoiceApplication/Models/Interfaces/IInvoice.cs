@@ -14,7 +14,7 @@ namespace Models.Interfaces
         public int Amount { get; set; }
         public DateTime DateOfIssue { get; set; }
         public DateTime DueDate { get; set; }
-        public bool IsInvoicePaid { get; set; }
+        public string IsInvoicePaid { get; set; }
 
     }
 }

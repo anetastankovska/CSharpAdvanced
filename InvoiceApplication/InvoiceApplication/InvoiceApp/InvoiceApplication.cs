@@ -122,7 +122,7 @@ namespace InvoiceApp
                     break;
                 case 4:
                     Console.Clear();
-                    Console.WriteLine($"Please select the invoice you want to pay: \n\n{userService.ShowUnpaidInvoices()}");
+                    Console.WriteLine($"Please select the invoice you want to pay: \n\n{userService.ShowUnpaidInvoices()} \n\nPlease note that an interest rate will be calculated for each voice that is being paid later than the due date (for each day baing late will be calculated additional 10 denars interest)");
                     int selectedInvoice = Helpers.ValidadeInput(1, userService.GetUnpaidInvoices().Count);
                     IInvoice invoiceToPay = userService.PickInvoice(selectedInvoice);
                     userService.PayInvoice(invoiceToPay);

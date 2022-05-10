@@ -25,6 +25,7 @@ namespace Services.Services
             CurrentUser.CurrentBalance += deposit;
             return CurrentUser.CurrentBalance;
         }
+
         public string ShowAllInvoices()
         {
 
@@ -34,7 +35,7 @@ namespace Services.Services
 
         public List<IInvoice> GetUnpaidInvoices()
         {
-            List<IInvoice> unpaidInvoices = CurrentUser.Invoices.Where(x => x.IsInvoicePaid == false).ToList();
+            List<IInvoice> unpaidInvoices = CurrentUser.Invoices.Where(x => x.IsInvoicePaid == "unpaid").ToList();
             return unpaidInvoices;
         }
 
@@ -48,12 +49,27 @@ namespace Services.Services
         public IInvoice PickInvoice(int selection)
         {
             List<IInvoice> unpaidInvoices = GetUnpaidInvoices();
-            return unpaidInvoices[selection - 1];
+            IInvoice unpaid = unpaidInvoices[selection - 1];
+            int latedays = CheckDaysbeingLate(unpaid);
+            unpaid.Amount += latedays * 10;
+            return unpaid;
+        }
+
+        private int CheckDaysbeingLate(IInvoice invoice)
+        {
+            int days = int.MinValue;
+            DateTime today = DateTime.Now;
+            if(today.Year >= invoice.DueDate.Year && today.DayOfYear > invoice.DueDate.DayOfYear)
+            {
+                days = today.DayOfYear - invoice.DueDate.DayOfYear;
+                return days;
+            }
+            return 0;
         }
 
         public void PayInvoice(IInvoice invoice)
         {
-            invoice.IsInvoicePaid = true;
+            invoice.IsInvoicePaid = "paid";
             CurrentUser.CurrentBalance -= invoice.Amount;
         }
     }

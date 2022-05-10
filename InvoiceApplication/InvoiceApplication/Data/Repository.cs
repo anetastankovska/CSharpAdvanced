@@ -24,23 +24,23 @@ namespace Data
 
 
             Companies.Add(new Company("EVN"));
-            Companies[0].IssueInvoice(Users[0] ,new Invoice(1500, DateTime.Now.AddDays(-20), DateTime.Now.AddDays(+5), false));
-            Companies[0].IssueInvoice(Users[1] ,new Invoice(Users[1], 2500, DateTime.Now.AddDays(-45), DateTime.Now.AddDays(-10), true));
-            Companies[0].IssueInvoice(Users[2], new Invoice(Users[2], 900, DateTime.Now.AddDays(-20), DateTime.Now.AddDays(+10), false));
-            Companies[0].IssueInvoice(Users[3], new Invoice(3000, DateTime.Now.AddDays(-40), DateTime.Now.AddDays(-25), false));
+            Companies[0].IssueInvoice(Users[0] ,new Invoice(1500, DateTime.Now.AddDays(-20), DateTime.Now.AddDays(+5), "unpaid"));
+            Companies[0].IssueInvoice(Users[1], new Invoice(Users[1], 2500, DateTime.Now.AddDays(-45), DateTime.Now.AddDays(-10), "paid"));
+            Companies[0].IssueInvoice(Users[2], new Invoice(Users[2], 900, DateTime.Now.AddDays(-20), DateTime.Now.AddDays(+10), "paid"));
+            Companies[0].IssueInvoice(Users[3], new Invoice(3000, DateTime.Now.AddDays(-40), DateTime.Now.AddDays(-25), "paid"));
 
             Companies.Add(new Company("BEG"));
-            Companies[1].IssueInvoice(Users[0], new Invoice(850, DateTime.Now.AddDays(-25), DateTime.Now.AddDays(-5), false));
-            Companies[1].IssueInvoice(Users[1], new Invoice(1350, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(+15), false));
-            Companies[1].IssueInvoice(Users[2], new Invoice(750, DateTime.Now.AddDays(-35), DateTime.Now.AddDays(-10), true));
-            Companies[1].IssueInvoice(Users[3], new Invoice(3000, DateTime.Now.AddDays(-15), DateTime.Now.AddDays(+5), false));
+            Companies[1].IssueInvoice(Users[0], new Invoice(850, DateTime.Now.AddDays(-25), DateTime.Now.AddDays(-5), "unpaid"));
+            Companies[1].IssueInvoice(Users[1], new Invoice(1350, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(+15), "unpaid"));
+            Companies[1].IssueInvoice(Users[2], new Invoice(750, DateTime.Now.AddDays(-35), DateTime.Now.AddDays(-10), "paid"));
+            Companies[1].IssueInvoice(Users[3], new Invoice(3000, DateTime.Now.AddDays(-15), DateTime.Now.AddDays(+5), "unpaid"));
 
             Companies.Add(new Company("Vododod"));
-            Companies[2].IssueInvoice(Users[0], new Invoice(320, DateTime.Now.AddDays(-13), DateTime.Now.AddDays(+2), true));
-            Companies[2].IssueInvoice(Users[1], new Invoice(470, DateTime.Now.AddDays(-22), DateTime.Now.AddDays(-3), false));
-            Companies[2].IssueInvoice(Users[2], new Invoice(290, DateTime.Now.AddDays(-18), DateTime.Now.AddDays(+8), false));
+            Companies[2].IssueInvoice(Users[0], new Invoice(320, DateTime.Now.AddDays(-13), DateTime.Now.AddDays(+2), "paid"));
+            Companies[2].IssueInvoice(Users[1], new Invoice(470, DateTime.Now.AddDays(-22), DateTime.Now.AddDays(-3), "unpaid"));
+            Companies[2].IssueInvoice(Users[2], new Invoice(290, DateTime.Now.AddDays(-18), DateTime.Now.AddDays(+8), "unpaid"));
             Companies[2].IssueInvoice(Users[3], new Invoice(730, DateTime.Now.AddDays(-15), DateTime.Now.AddDays(+10
-                ), true));
+                ), "paid"));
 
             Admins.Add(new Admin("Aneta", "Stankovska", "aneta6", "pass6", Companies[0]));
             Admins.Add(new Admin("Ilija", "Mitev", "ilija7", "pass7", Companies[1]));

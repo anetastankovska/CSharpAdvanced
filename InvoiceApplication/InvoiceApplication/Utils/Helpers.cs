@@ -52,6 +52,12 @@ namespace Utils
             }
         }
 
+        public static Action<string, ConsoleColor> printWithColor = (text, color) =>
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        };
 
     }
 }

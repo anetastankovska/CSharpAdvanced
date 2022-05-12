@@ -3,25 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryBeingFitApp", "TryBeingFitApp\TryBeingFitApp.csproj", "{41876BA4-BBB6-4F2B-969A-540F9E13885A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project UML", "Project UML", "{4EA53AFC-1F49-4D21-B69C-DE0F86C6FFD9}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\DrawIO\.drawioTryBeingFitNew.drawio = ..\..\..\..\DrawIO\.drawioTryBeingFitNew.drawio
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TryBeingFitApp", "TryBeingFitApp\TryBeingFitApp.csproj", "{41876BA4-BBB6-4F2B-969A-540F9E13885A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D0D0614-8A0A-4F78-AB15-716A49BB39FC}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{F4D29DA7-C2FB-459E-BB62-A1B8F4C20C6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{F4D29DA7-C2FB-459E-BB62-A1B8F4C20C6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{3645F3BA-4029-4F60-8E19-FF225D36318D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{3645F3BA-4029-4F60-8E19-FF225D36318D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7FB8AA67-2129-40FC-BCCB-E796F3B5C1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{7FB8AA67-2129-40FC-BCCB-E796F3B5C1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{02F7B126-C99B-4FEF-A601-B724B3D592FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{02F7B126-C99B-4FEF-A601-B724B3D592FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

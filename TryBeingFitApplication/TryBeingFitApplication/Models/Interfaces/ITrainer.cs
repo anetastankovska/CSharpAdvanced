@@ -8,5 +8,6 @@ namespace Models.Interfaces
 {
     public interface ITrainer
     {
+        public LiveTraining LiveTraining { get; set; }
     }
 }

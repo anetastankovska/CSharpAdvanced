@@ -8,5 +8,8 @@ namespace Models.Interfaces
 {
     public interface ILiveTraining
     {
+        public ITrainer Trainer { get; set; }
+        public DateTime DateAndTime { get; set; }
+        public List<IPremiumUser> Users { get; set; }
     }
 }

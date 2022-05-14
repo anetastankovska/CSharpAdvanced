@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Models.Interfaces
 {
-    public interface IStandardUser
+    public interface IStandardUser : IUser
     {
-        public List<VideoTraining> VideoTrainings { get; set; }
+        
     }
 }

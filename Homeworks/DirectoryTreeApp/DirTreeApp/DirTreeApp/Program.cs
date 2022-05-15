@@ -42,12 +42,12 @@ string PadSpaces(int level)
     return string.Join("", result);
 }
 
-string ColoredString(string text, ConsoleColor color)
-{
-    string strColor = "\u001b[__m";
-    strColor = strColor.Replace("__", color == ConsoleColor.Red ? "31" : color == ConsoleColor.Green ? "32" : "33");
-    return $"{strColor}{text}\u001b[0m";
-}
+//string ColoredString(string text, ConsoleColor color)
+//{
+//    string strColor = "\u001b[__m";
+//    strColor = strColor.Replace("__", color == ConsoleColor.Red ? "31" : color == ConsoleColor.Green ? "32" : "33");
+//    return $"{strColor}{text}\u001b[0m";
+//}
 
 int level = 0;
 

@@ -10,11 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{C2B16922-3975-4A63-9DE3-2CA40BE09FEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{C2B16922-3975-4A63-9DE3-2CA40BE09FEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{533132A2-B91B-4798-9819-A13A570F9AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{533132A2-B91B-4798-9819-A13A570F9AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{D9A7824B-4C90-42EB-ACAB-5B9DE549EFD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{D9A7824B-4C90-42EB-ACAB-5B9DE549EFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{C7638597-550C-4BEB-A2C4-352B6908C49E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{D9A7824B-4C90-42EB-ACAB-5B9DE549EFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A7824B-4C90-42EB-ACAB-5B9DE549EFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A7824B-4C90-42EB-ACAB-5B9DE549EFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7638597-550C-4BEB-A2C4-352B6908C49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7638597-550C-4BEB-A2C4-352B6908C49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7638597-550C-4BEB-A2C4-352B6908C49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7638597-550C-4BEB-A2C4-352B6908C49E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

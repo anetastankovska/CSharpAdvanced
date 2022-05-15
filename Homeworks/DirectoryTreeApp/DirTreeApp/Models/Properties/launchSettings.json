@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Models": {
+      "commandName": "Project",
+      "commandLineArgs": ". kiro.log"
+    }
+  }
+}

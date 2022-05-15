@@ -20,7 +20,7 @@ namespace Utils
             string[] result = new string[level * 2];
             for (int i = 0; i < level; i++)
             {
-                result[i] = "   ";
+                result[i] = "│   ";
             }
             return string.Join("", result);
         }

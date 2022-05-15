@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DirTreeApp": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Aneta\\Desktop\\SEDC\\CSharpAdvanced kiro.log"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-﻿using Models.Interfaces;
+﻿using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,11 @@ namespace Models
             : base(firstname, lastname, username, password)
         {
          
+        }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
         }
     }
 }

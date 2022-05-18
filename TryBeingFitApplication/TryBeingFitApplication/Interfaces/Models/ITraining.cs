@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Interfaces
+namespace Interfaces
 {
     public interface ITraining
     {
+        public string Title { get; set; }
+        public ITrainer Trainer { get; set; }
     }
 }

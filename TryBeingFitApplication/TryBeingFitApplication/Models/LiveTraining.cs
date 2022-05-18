@@ -1,4 +1,4 @@
-﻿using Models.Interfaces;
+﻿using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +9,17 @@ namespace Models
 {
     public class LiveTraining : Training, ILiveTraining
     {
-        public ITrainer Trainer { get; set; }
         public DateTime DateAndTime { get; set; }
-        public List<IPremiumUser> Users { get; set; }
+
+        public LiveTraining(string title, ITrainer trainer, DateTime dateTime)
+            : base (title, trainer)
+        {
+            DateAndTime = dateTime;
+        }
+
+        public override string ToString()
+        {
+            return $"Title: {Title}. Trainer {Trainer}. Date and time {DateAndTime.ToShortDateString}";
+        }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Interfaces
+namespace Interfaces
 {
-    public interface IStandardUser : IUser
+    public interface ITrainer
     {
-        
+        public ILiveTraining LiveTraining { get; set; }
     }
 }

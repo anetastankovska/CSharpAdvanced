@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace Services.Interfaces
 {
-    public class Trainer
+    public interface IUserService
     {
-        public ILiveTraining LiveTraining { get; set; }
+        public IUser Login<T>(string username, string password);
     }
 }

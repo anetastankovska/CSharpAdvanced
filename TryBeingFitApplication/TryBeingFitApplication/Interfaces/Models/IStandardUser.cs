@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.Interfaces
+namespace Interfaces
 {
-    public interface IUserService
+    public interface IStandardUser : IUser
     {
+        
     }
 }

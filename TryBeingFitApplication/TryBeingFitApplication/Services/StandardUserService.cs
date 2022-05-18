@@ -1,5 +1,5 @@
 ﻿using Models;
-using Models.Interfaces;
+using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,17 @@ namespace Services
 
         public IStandardUser Register(string firstname, string lastname, string username, string password)
         {
-            IStandardUser newUser = new StandardUser(firstname, lastname, username, password);
-            StandardUsers.Add(newUser);
-            return newUser;
+            try
+            {
+                IStandardUser newUser = new StandardUser(firstname, lastname, username, password);
+                StandardUsers.Add(newUser);
+                return newUser;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something wrong happened");
+                return null;
+            }
         }
 
         public string GetAccount(IStandardUser user)
@@ -35,6 +43,15 @@ namespace Services
             {
                 return ex.Message;
             }
+        }
+
+        public IPremiumUser UpgradeToPremium(IStandardUser standardUser)
+        {
+            IPremiumUser newPremiumUser = new PremiumUser() { FirstName = standardUser.FirstName, LastName = standardUser.LastName, Username = standardUser.Username, Password = standardUser.Password};
+            //add new premium user to the list with premium users
+            //remove standard user from the list with standard users
+            return newPremiumUser;
+           
         }
     }
 }

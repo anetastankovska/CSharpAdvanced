@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Interfaces.Models;
 using Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -10,28 +11,59 @@ namespace Services
 {
     public class TrainerService : ITrainerService
     {
-        public void RescheduleTraining(ILiveTraining liveTraining, DateTime newdateTime)
+        public List<ITrainer> Trainers { get; set; }
+        public string RescheduleTraining(ITrainer trainer, string newdateTime)
         {
+            string message = string.Empty;
             try
             {
-                liveTraining.DateAndTime = newdateTime;
+                DateTime newDateTime = DateTime.Parse(newdateTime);
+                if(newDateTime.DayOfYear < DateTime.Now.DayOfYear)
+                {
+                    message = "The date you are trying to enter is earlier than today";
+                }
+                else if(newDateTime.DayOfYear > DateTime.Now.DayOfYear)
+                {
+                    trainer.LiveTraining.DateAndTime = DateTime.Parse(newdateTime);
+                    message = $"Your training has been successfully rescheduled. \nThe new date and time are: {DateTime.Now.ToShortDateString}";
+                }
+                else if (newDateTime.DayOfYear == DateTime.Now.DayOfYear)
+                {
+                    message = "The entered date is too close to reschedule it. We are very sorry to inform you that it would not be possible at this time.";
+                }  
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                return "An error has occured while trying to reschedule the training. Please check the dates again";
             }
+            return message;
         }
 
-        public void RescheduleTraining(ILiveTraining liveTraining, string newdateTime)
+        public string Train(ITrainer trainer)
         {
+            string result = string.Empty;
             try
             {
-                liveTraining.DateAndTime = DateTime.Parse(newdateTime);
+                int days = trainer.LiveTraining.DateAndTime.DayOfYear - DateTime.Now.DayOfYear;
+
+                if (days > 0)
+                {
+                    result = $"It is too early to train. you have {days} left until your training.";
+                }
+                else if (days < 0)
+                {
+                    result = $"You have already done your training. Please check your schedule.";
+                }
+                else if (days == 0)
+                {
+                    result = $"Your training is today. Prepare well for it!";
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
+                return "Something wrong happened, please check with your supervisor.";
             }
+            return result;
         }
     }
 }

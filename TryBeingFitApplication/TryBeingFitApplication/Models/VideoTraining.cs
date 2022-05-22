@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace Models
         public override string ToString()
         {
             return $"Title: {Title}. Trainer: {Trainer}.";
+        }
+
+        public string GetVideoRating()
+        {
+            return $"Title: {Title}. Trainer: {Trainer}. Rating: {Rating}. ";
         }
     }
 }

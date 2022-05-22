@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces
+namespace Interfaces.Models
 {
     public interface IVideoTraining : ITraining
     {
         public float Rating { get; set; }
+
+        public string GetVideoRating();
     }
 }

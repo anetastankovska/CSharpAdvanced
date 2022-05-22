@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Interfaces;
+using Interfaces.Models;
 
 namespace Services
 {
-    public class StandardUserService
+    public class StandardUserService 
     {
-        public List<IStandardUser> StandardUsers { get; set; }
+        public List<IStandardUser> StandardUsers { get; set; } = new List<IStandardUser>();
 
         public IStandardUser Register(string firstname, string lastname, string username, string password)
         {
@@ -47,11 +49,9 @@ namespace Services
 
         public IPremiumUser UpgradeToPremium(IStandardUser standardUser)
         {
-            IPremiumUser newPremiumUser = new PremiumUser() { FirstName = standardUser.FirstName, LastName = standardUser.LastName, Username = standardUser.Username, Password = standardUser.Password};
-            //add new premium user to the list with premium users
-            //remove standard user from the list with standard users
+            IPremiumUser newPremiumUser = new PremiumUser() { FirstName = standardUser.FirstName, LastName = standardUser.LastName, Username = standardUser.Username, Password = standardUser.Password, CompletedLiveTraining = false };
+            StandardUsers.Remove(standardUser);
             return newPremiumUser;
-           
         }
     }
 }

@@ -6,8 +6,6 @@ using Utils;
 
 UserService svc = new UserService();
 
-svc.Login<IStandardUser>("aa", "bb");
-
-Console.WriteLine("Hello, World!");
-List<string> a = Helpers.RegisterNewUser();
-Console.WriteLine(a);
+var ints = new List<int>() { 1, 2, 3, 4, 5 };
+string result = string.Join("\n", ints);
+Console.WriteLine(result);

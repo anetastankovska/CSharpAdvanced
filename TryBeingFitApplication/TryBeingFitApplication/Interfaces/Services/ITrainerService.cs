@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace Interfaces.Services
 {
     public interface ITrainerService
     {
-        public void RescheduleTraining(ILiveTraining liveTraining, DateTime newdateTime);
-        public void RescheduleTraining(ILiveTraining liveTraining, string newdateTime)
+        public List<ITrainer> Trainers { get; set; }
+
+        public string RescheduleTraining(ITrainer trainer, string newdateTime);
+        public string Train(ITrainer trainer);
     }
 }

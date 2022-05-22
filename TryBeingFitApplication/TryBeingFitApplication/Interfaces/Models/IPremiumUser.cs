@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces.Models
 {
-    public interface IPremiumUser
+    public interface IPremiumUser : IUser
     {
         public bool CompletedLiveTraining { get; set; }
     }

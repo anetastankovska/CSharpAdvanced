@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    public interface IStandardUserService : IUserService
+    public interface IStandardUserService
     {
+        public IStandardUser CurrentUser { get; set; }
         public List<IStandardUser> StandardUsers { get; set; }
 
         public IStandardUser Register(string firstname, string lastname, string username, string password);
-        public string GetAccount(IStandardUser user);
-        public IPremiumUser UpgradeToPremium(IStandardUser standardUser);
+        public string GetAccount();
+        public IPremiumUser UpgradeToPremium();
     }
 }

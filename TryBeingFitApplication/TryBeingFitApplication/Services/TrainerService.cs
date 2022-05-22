@@ -11,6 +11,7 @@ namespace Services
 {
     public class TrainerService : ITrainerService
     {
+        public ITrainer CurrentUser { get; set; }
         public List<ITrainer> Trainers { get; set; }
         public string RescheduleTraining(ITrainer trainer, string newdateTime)
         {
@@ -37,6 +38,24 @@ namespace Services
                 return "An error has occured while trying to reschedule the training. Please check the dates again";
             }
             return message;
+        }
+
+        public string GetAccount()
+        {
+            try
+            {
+                int len = CurrentUser.Password.Length;
+                string account = $"FirstName: {CurrentUser.FirstName}\n lastname: {CurrentUser.LastName}\n {CurrentUser.Username}\n {CurrentUser.Password.Select(x => "*")}";
+                return account;
+            }
+            catch (ArgumentNullException)
+            {
+                return "User does not exist";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Train(ITrainer trainer)

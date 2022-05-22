@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interfaces.Models
+namespace TryBeingFitApp
 {
-    public interface ITrainer : IUser
+    public class Application
     {
-        public ILiveTraining LiveTraining { get; set; }
     }
 }

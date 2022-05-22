@@ -10,9 +10,10 @@ using Interfaces.Models;
 
 namespace Services
 {
-    public class StandardUserService 
+    public class StandardUserService : IStandardUserService
     {
         public List<IStandardUser> StandardUsers { get; set; } = new List<IStandardUser>();
+        public IStandardUser CurrentUser { get ; set ; }
 
         public IStandardUser Register(string firstname, string lastname, string username, string password)
         {
@@ -24,17 +25,16 @@ namespace Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Something wrong happened");
-                return null;
+                throw;
             }
         }
 
-        public string GetAccount(IStandardUser user)
+        public string GetAccount()
         {
             try
             {
-                int len = user.Password.Length;
-                string account = $"FirstName: {user.FirstName}\n lastname: {user.LastName}\n {user.Username}\n {user.Password.Select(x => "*")}";
+                int len = CurrentUser.Password.Length;
+                string account = $"FirstName: {CurrentUser.FirstName}\n lastname: {CurrentUser.LastName}\n {CurrentUser.Username}\n {CurrentUser.Password.Select(x => "*")}";
                 return account;
             }
             catch (ArgumentNullException)
@@ -47,10 +47,10 @@ namespace Services
             }
         }
 
-        public IPremiumUser UpgradeToPremium(IStandardUser standardUser)
+        public IPremiumUser UpgradeToPremium()
         {
-            IPremiumUser newPremiumUser = new PremiumUser() { FirstName = standardUser.FirstName, LastName = standardUser.LastName, Username = standardUser.Username, Password = standardUser.Password, CompletedLiveTraining = false };
-            StandardUsers.Remove(standardUser);
+            IPremiumUser newPremiumUser = new PremiumUser() { FirstName = CurrentUser.FirstName, LastName = CurrentUser.LastName, Username = CurrentUser.Username, Password = CurrentUser.Password, CompletedLiveTraining = false };
+            StandardUsers.Remove(CurrentUser);
             return newPremiumUser;
         }
     }

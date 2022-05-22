@@ -10,8 +10,9 @@ namespace Services.Interfaces
 {
     public interface IUserService
     {
+        public IUser CurrentUser { get; set; }
         public IUser Login<T>(string username, string password);
-        public void Train<T>();
-        public void Exit<T>();
+        public void Logout();
+        public void Exit();
     }
 }

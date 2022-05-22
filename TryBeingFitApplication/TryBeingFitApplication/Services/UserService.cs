@@ -11,45 +11,37 @@ namespace Services
 {
     public class UserService : IUserService
     {
+        public IUser CurrentUser { get; set; }  
+        List<IStandardUser> StandardUsers { get; set; } = new List<IStandardUser>();
+        List<IPremiumUser> PremiumUsers { get; set; } = new List<IPremiumUser>();
+        List<ITrainer> Trainers { get; set; } = new List<ITrainer>();
         public IUser Login<T>(string username, string password)
         {
             IUser temp = null;
             switch (typeof(T))
             {
                 case IStandardUser:
+                    temp = StandardUsers.FirstOrDefault(x => x.Username == username && x.Password == password);
                     break;
                 case IPremiumUser:
+                    temp = PremiumUsers.FirstOrDefault(x => x.Username == username && x.Password == password);
                     break;
                 case ITrainer:
+                    temp = Trainers.FirstOrDefault(x => x.Username == username && x.Password == password);
                     break;
                 default:
-                    break;
+                    throw new Exception("The credentiala are not valid. Try again");
             }
             return temp;
         }
 
-        public void Train<T>(T user)
+        public void Logout()
         {
-
+            CurrentUser = null;
         }
-
-        public void LogOut(IUser currentUser)
+        public void Exit()
         {
-            currentUser = null;
-        }
-        public void Exit<T>(T user)
-        {
-
-        }
-
-        public void Train<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Exit<T>()
-        {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
     }
 }
